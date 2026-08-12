@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
+    "postbuild": "pm2 restart clearsky-homepage || pm2 start ecosystem.config.cjs",
     "preview": "vite preview"
   },
   "devDependencies": {
@@ -15,5 +16,8 @@
     "@sveltejs/vite-plugin-svelte": "^3.1.2",
     "svelte": "^4.2.19",
     "vite": "^5.4.11"
+  },
+  "dependencies": {
+    "@sveltejs/adapter-node": "^5.5.7"
   }
 }
