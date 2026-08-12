@@ -106,20 +106,18 @@
 
     <!-- ── LEFT: text column ── -->
     <div class="text">
-      <span class="badge">Guaranteed 20% revenue growth</span>
+      <span class="badge">Efficiencies &amp; Growth</span>
 
-      <h1 class="headline">We create <span class="accent">unfair</span><br />advantages</h1>
+      <h1 class="headline">WE CREATE <span class="accent">UNFAIR</span><br />ADVANTAGES</h1>
 
       <div class="subhead">
-        <p>A platform that gets smarter and works harder the longer you're on it.
-           Offering protected markets, &amp; a revenue growth guarantee.</p>
+        <p>A platform powered by data that gets smarter the longer you're on it, creating unmatched<br />differentiation when applied to your operations  and business growth processes."</p>
       </div>
 
       <h2 class="platform">ClearSky Business Platform</h2>
-      <p class="body"><strong class="navy">We are Not</strong> an agency.</p>
+      <p class="body"><strong class="navy">We are Not</strong> <span class="agency">an agency.</span></p>
       <p class="body navy bold">Not a tool.</p>
-      <p class="body"><strong class="orange">We are</strong> a managed growth ecosystem built for
-         contractors, manufacturers, tourism, and professional services who want to grow their business.</p>
+      <p class="body"><strong class="orange">We are</strong> <strong class="dark">a managed ecosystem that puts AI and data to work for contractors, manufacturers,<br />tourism, and professional services.</strong></p>
     </div>
 
     <!-- ── RIGHT: live signal carousel ── -->
@@ -131,12 +129,7 @@
       <!-- optional CSS fade in case a photo isn't pre-faded (top + left) -->
       <div class="bleed" aria-hidden="true"></div>
 
-      {#if pillVisible}
-        <div class="pill" transition:fade={{ duration: 400 }}>
-          <span class="dot"></span>
-          <span class="pill-text">{sectors[activeSector].pill}</span>
-        </div>
-      {/if}
+  
 
       {#if panelVisible}
         <div class="panel" transition:fade={{ duration: 300 }}>
@@ -187,48 +180,49 @@
     gap: 40px;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 0 30px;        /* same grid as the nav */
+    padding-left: 30px;        /* same grid as the nav */
     box-sizing: border-box;
   }
 
   /* ── left text column ── */
-  .text { flex: 1; max-width: 840px; padding-top: 50px; }
+  .text { flex: 1; padding-top: 40px; }
 
   .badge {
     display: inline-block;
     background: #2D5DA8; color: #fff;
     font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 15px;
-    padding: 8px 18px; border-radius: 999px; margin-bottom: 26px;
+    padding: 7px 18px; border-radius: 999px; margin-bottom: 24px;
   }
 
   .headline {
     font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800; font-size: 64px; line-height: 1.02;
+    font-weight: 800; font-size: 64px; line-height: 1.0;
     letter-spacing: -0.5px; text-transform: uppercase;
-    color: #3D6DB5; margin: 0 0 26px;
+    color: #3D6DB5; margin: 0 0 24px;
   }
   .headline .accent { color: #F5841F; }
 
-  .subhead { border-left: 4px solid #F5841F; padding-left: 18px; margin-bottom: 30px; }
+  .subhead { border-left: 3px solid #F5841F; padding-left: 16px; margin-bottom: 32px; }
   .subhead p {
-    font-family: 'Playpen Sans', cursive;
-    font-weight: 500; font-size: 24px; line-height: 1.4;
-    color: #1F2A44; margin: 0;
+    font-family: 'Playpen Sans', cursive, sans-serif;
+    font-weight: 700; font-size: 18px; line-height: 1.35;
+    color: #111111; margin: 0;
   }
 
   .platform {
     font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 19px;
-    color: #3D6DB5; margin: 0 0 10px;
+    color: #3D6DB5; margin: 0 0 12px;
   }
   .body {
-    font-family: 'Playpen Sans', cursive; font-size: 20px; line-height: 1.35;
-    color: #333; margin: 0;
+    font-family: 'Playpen Sans', cursive, sans-serif; font-size: 18px; line-height: 1.35;
+    color: #111111; margin: 0;
   }
-  .body + .body { margin-top: 0; }
-  .body.navy.bold { color: #1e3a5f; font-weight: 700; margin: 0; }
-  .body:last-child { margin-top: 2px; }
+  .body + .body { margin-top: 2px; }
+  .body.navy.bold { color: #1e3a5f; font-weight: 700; margin: 2px 0; }
   .navy { color: #1e3a5f; font-weight: 700; }
+  .agency { color: #5A6B82; font-weight: 400; }
   .orange { color: #F5841F; font-weight: 700; }
+  .dark { color: #111111; font-weight: 700; }
 
   /* ── right visual / signal carousel ──
      Image bleeds into white: no border, no shadow, no radius.
