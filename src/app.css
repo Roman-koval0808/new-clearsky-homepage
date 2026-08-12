@@ -1,0 +1,24 @@
+/* ClearSky global reset + tokens.
+   Component styles are scoped per-component (Svelte). This file only
+   owns the reset, font defaults, and shared CSS custom properties. */
+:root {
+  --brand-blue: #3D6DB5;
+  --pill-blue: #2D5DA8;
+  --title-blue: #4267AD;
+  --logo-light-blue: #6B9BD1;
+  --dark-navy: #1F2A44;
+  --dark-navy-alt: #1e3a5f;
+  --orange: #F5841F;
+  --border-soft: #E6ECF5;
+  --panel-tint: #F7F9FC;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: 'Playpen Sans', system-ui, sans-serif;
+  color: var(--dark-navy);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }

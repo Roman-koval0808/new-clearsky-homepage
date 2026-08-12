@@ -1,0 +1,28 @@
+# dependencies
+node_modules
+
+# build output
+/build
+/.svelte-kit
+/package
+
+# environment
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+
+# QA / tooling scratch
+.playwright-mcp/
+qa-*.png
+
+# Original design deliverables — kept on disk for reference, NOT tracked in git.
+# (67 MB of loose HTML/Svelte/Python/zip handoff files + session notes.)
+# Remove this line if you WANT them versioned.
+/_source-archive/
+
+.vercel
