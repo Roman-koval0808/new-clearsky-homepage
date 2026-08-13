@@ -50,7 +50,7 @@
 </header>
 
 <style>
-  .nav { width: 100%; background: #fff; border-bottom: 1px solid #f1f5f9; box-shadow: 0 4px 10px 0 rgba(0,0,0,.10); }
+  .nav { width: 100%; background: #fff; border-bottom: 1px solid #f1f5f9; box-shadow: 0 4px 10px 0 rgba(0,0,0,.10); position: sticky; top: 0; z-index: 100; }
   .inner { max-width: 1440px; margin: 0 auto; height: 86px; padding: 0 30px 13px; display: flex; align-items: flex-end; justify-content: space-between; box-sizing: border-box; }
 
   .logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }

@@ -81,7 +81,7 @@
 </div>
 
 <style>
-  .m-nav-root { position: relative; }
+  .m-nav-root { position: sticky; top: 0; z-index: 100; }
 
   .m-header {
     position: relative; z-index: 60; height: 64px; background: #fff;
