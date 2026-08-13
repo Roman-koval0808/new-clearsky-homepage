@@ -20,9 +20,9 @@
   export let seeLine = 'See three sample designs below';
 
   export let sites = [
-    { src: '/images/websites/site-1.jpg', href: '#', alt: 'Roofing sample website' },
-    { src: '/images/websites/site-2.jpg', href: '#', alt: 'Kitchen remodel sample website' },
-    { src: '/images/websites/site-3.jpg', href: '#', alt: 'Custom home sample website' }
+    { label: 'Roofing sample site', href: '#' },
+    { label: 'Kitchen remodel sample site', href: '#' },
+    { label: 'Custom home sample site', href: '#' }
   ];
 </script>
 
@@ -35,8 +35,12 @@
     </div>
     <div class="site-row">
       {#each sites as s}
-        <a class="site-card" href={s.href} target="_blank" rel="noopener">
-          <img src={s.src} alt={s.alt} />
+        <a class="site-card mockup-card" href={s.href} target="_blank" rel="noopener">
+          <div class="browser-bar">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="play-btn"><div class="play-icon"></div></div>
+          <div class="mockup-label">{s.label}</div>
         </a>
       {/each}
     </div>
@@ -51,7 +55,64 @@
   .websites-sub p { font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.6; color: #1F2A44; margin: 0; }
   .websites-sub .see { margin-top: 10px; font-weight: 600; color: #3D6DB5; }
   .site-row { display: flex; justify-content: center; gap: 15px; margin-top: 40px; }
-  .site-card { width: 450px; display: block; border-radius: 8px; overflow: hidden; box-shadow: 0 8px 22px rgba(40,70,120,.12); transition: transform .18s ease, box-shadow .18s ease; }
-  .site-card img { width: 100%; height: auto; display: block; }
+  .site-card { width: 450px; display: block; border-radius: 8px; overflow: hidden; box-shadow: 0 8px 22px rgba(40,70,120,.12); transition: transform .18s ease, box-shadow .18s ease; text-decoration: none; }
+  
+  .mockup-card {
+    position: relative;
+    background: linear-gradient(160deg, #3d6fb3 0%, #294c7d 100%);
+    aspect-ratio: 4 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .browser-bar {
+    height: 24px;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    gap: 6px;
+  }
+  .browser-bar span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+  }
+  .play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease;
+  }
+  .play-icon {
+    width: 0; 
+    height: 0; 
+    border-style: solid; 
+    border-width: 10px 0 10px 16px; 
+    border-color: transparent transparent transparent #3d6fb3;
+    margin-left: 4px;
+  }
+  .mockup-label {
+    position: absolute;
+    bottom: 24px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
   .site-card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(40,70,120,.18); }
+  .site-card:hover .play-btn { transform: translate(-50%, -50%) scale(1.05); }
 </style>

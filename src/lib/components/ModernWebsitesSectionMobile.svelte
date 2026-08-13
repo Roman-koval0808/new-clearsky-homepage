@@ -6,9 +6,9 @@
   export let intro = 'Your website should look as professional as the business behind it. ClearSky websites are modern, branded, mobile-friendly, and built to help turn visitors into leads.';
   export let seeLine = 'Swipe through three sample designs';
   export let sites = [
-    { src: '/images/websites/site-1.jpg', href: '#', alt: 'Roofing sample website' },
-    { src: '/images/websites/site-2.jpg', href: '#', alt: 'Kitchen remodel sample website' },
-    { src: '/images/websites/site-3.jpg', href: '#', alt: 'Custom home sample website' }
+    { label: 'Roofing sample site', href: '#' },
+    { label: 'Kitchen remodel sample site', href: '#' },
+    { label: 'Custom home sample site', href: '#' }
   ];
 
   let i = 0;
@@ -34,8 +34,12 @@
     <div class="track" style={`transform: translateX(${-i * 100}%)`}>
       {#each sites as s}
         <div class="slide">
-          <a class="site" href={s.href} target="_blank" rel="noopener">
-            <img src={s.src} alt={s.alt} />
+          <a class="site mockup-card" href={s.href} target="_blank" rel="noopener">
+            <div class="browser-bar">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="play-btn"><div class="play-icon"></div></div>
+            <div class="mockup-label">{s.label}</div>
           </a>
         </div>
       {/each}
@@ -57,9 +61,64 @@
   .see { text-align: center; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; color: #3D6DB5; margin: 10px 0 0; }
   .viewport { margin-top: 26px; overflow: hidden; touch-action: pan-y; }
   .track { display: flex; transition: transform .35s ease; }
-  .slide { flex: 0 0 100%; padding: 0 20px; }
-  .site { display: block; width: 100%; border-radius: 10px; overflow: hidden; box-shadow: 0 8px 22px rgba(40,70,120,.16); }
-  .site img { width: 100%; height: auto; display: block; }
+  .slide { flex: 0 0 100%; padding: 0 20px; box-sizing: border-box; }
+  .site { display: block; width: 100%; border-radius: 10px; overflow: hidden; box-shadow: 0 8px 22px rgba(40,70,120,.16); text-decoration: none; }
+  
+  .mockup-card {
+    position: relative;
+    background: linear-gradient(160deg, #3d6fb3 0%, #294c7d 100%);
+    aspect-ratio: 4 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .browser-bar {
+    height: 24px;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    gap: 6px;
+  }
+  .browser-bar span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+  }
+  .play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px;
+    height: 56px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  }
+  .play-icon {
+    width: 0; 
+    height: 0; 
+    border-style: solid; 
+    border-width: 9px 0 9px 14px; 
+    border-color: transparent transparent transparent #3d6fb3;
+    margin-left: 4px;
+  }
+  .mockup-label {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
   .dots { display: flex; justify-content: center; gap: 9px; margin-top: 18px; }
   .dot { width: 8px; height: 8px; border-radius: 50%; border: 0; padding: 0; background: #c2cede; cursor: pointer; transition: background .2s ease, width .2s ease; }
   .dot.active { background: #3D6DB5; width: 22px; border-radius: 5px; }
