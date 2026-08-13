@@ -26,20 +26,20 @@
     "ClearSky Business Platform (CBP) is organized into four business types: Trades, Tourism, Professional Services and Manufacturers. Each sector has its own customized operating playbook. Clicking the links below, we'll introduce you to the platform features and how we'll achieve revenue growth for your business.";
 
   export let sectors = [
-    { header: 'you work with your hands',         href: '/trades',                photo: '/images/sector-trades.jpg',        ph: 'linear-gradient(135deg,#cdd9e8,#9fb6d0)', caption: 'Builders, roofers, plumbers, HVAC, landscapers, electricians, mechanics' },
-    { header: 'you fulfill lifetime experiences',  href: '/tourism',               photo: '/images/sector-tourism.jpg',       ph: 'linear-gradient(135deg,#cfe0d8,#9fc4b3)', caption: 'Lodges, resorts, fishing & hunting outfitters, guides, outdoor recreation & more …' },
-    { header: 'you provide professional services', href: '/professional-services', photo: '/images/sector-professional.jpg',  ph: 'linear-gradient(135deg,#dcd9e8,#b3a9cf)', caption: 'Lawyers, accountants, dentists, consultants, chiropractors, architects & more …' },
-    { header: 'you transform resources',           href: '/manufacturers',         photo: '/images/sector-manufacturing.jpg', ph: 'linear-gradient(135deg,#e8e0cf,#cfbf9f)', caption: 'Sawmill operations, solid wood fabricators, metal fabricators, manufacturers & more…' }
+    { header: 'you work with your hands',         href: '/trades',                photo: '/images/sector-trades.jpg',        caption: 'Builders, roofers, plumbers, HVAC, landscapers, electricians, mechanics' },
+    { header: 'you fulfill lifetime experiences',  href: '/tourism',               photo: '/images/sector-tourism.jpg',       caption: 'Lodges, resorts, fishing & hunting outfitters, guides, outdoor recreation & more …' },
+    { header: 'you provide professional services', href: '/professional-services', photo: '/images/sector-professional.jpg',  caption: 'Lawyers, accountants, dentists, consultants, chiropractors, architects & more …' },
+    { header: 'you transform resources',           href: '/manufacturers',         photo: '/images/sector-manufacturing.jpg', caption: 'Sawmill operations, solid wood fabricators, metal fabricators, manufacturers & more…' }
   ];
 
-  // Use the real photo when present; fall back to the placeholder gradient.
-  const bg = (s) => s.photo && !s.photo.startsWith('/images/sector-') ? `url('${s.photo}')` : s.ph;
+  const bg = (s) => `url('${s.photo}')`;
 </script>
 
 <section class="sectors">
+  <!-- Hidden per user request 
   <h2 class="title">{title}</h2>
   <p class="intro">{intro}</p>
-
+  -->
   <div class="grid">
     {#each sectors as s}
       <a class="card" href={s.href}>
@@ -76,7 +76,7 @@
     font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; line-height: 1.25;
     color: #1F2A44; min-height: 56px; display: flex; align-items: center; justify-content: center;
   }
-  .photo { position: relative; height: 150px; overflow: hidden; }
+  .photo { position: relative; height: 220px; overflow: hidden; }
   .img { position: absolute; inset: 0; background-size: cover; background-position: center; }
   .caption {
     position: absolute; left: 0; right: 0; bottom: 0; min-height: 62px;

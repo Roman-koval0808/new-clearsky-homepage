@@ -34,9 +34,9 @@
   <svelte:fragment slot="mobile">
     <NavigationMobile />
     <HeroMobile />
-    <RevenueSectionMobile />
+    <!-- <RevenueSectionMobile /> -->
     <SectorsSectionMobile />
-    <EcosystemSection />
+    <!-- <EcosystemSection /> -->
     <GrowthEngineSectionMobile />
     <FoundersSectionMobile />
   </svelte:fragment>

@@ -105,59 +105,19 @@
   <p class="body"><strong class="orange">We are</strong> a managed growth ecosystem built for
      contractors, manufacturers, tourism, and professional services who want to grow their business.</p>
 
-  <!-- live signal carousel -->
+  <!-- live signal carousel - hidden on mobile per user request -->
+  <!-- 
   <div
     class="visual"
     style="height:{visualHeight}px; background-image:url('{sectors[activeSector].photo}');"
   >
-    <div class="bleed" aria-hidden="true"></div>
-
-    {#if pillVisible}
-      <div class="pill" transition:fade={{ duration: 400 }}>
-        <span class="dot"></span>
-        <span class="pill-text">{sectors[activeSector].pill}</span>
-      </div>
-    {/if}
-
-    {#if panelVisible}
-      <div class="panel" transition:fade={{ duration: 300 }}>
-        <div class="panel-head">
-          <span class="panel-title">Incoming signals</span>
-          <span class="ai-badge">AI</span>
-        </div>
-        <div class="messages" style="max-height:{MAX_PANEL_HEIGHT}px;">
-          {#each shown as m (m)}
-            {#if m.kind === 'divider'}
-              <div class="divider" in:fade={{ duration: 350 }}>{m.label}</div>
-            {:else}
-              <div class="row" in:fly={{ y: 14, duration: 400 }}>
-                <div class="av {m.kind === 'ai' ? 'av-ai' : 'av-user'}">{m.avatar}</div>
-                <div class="bubble">
-                  {#if m.name}
-                    <div class="name">
-                      {m.name}
-                      {#if m.chip}<span class="chip chip-{m.chipType}">{m.chip}</span>{/if}
-                    </div>
-                  {/if}
-                  <div class="txt {m.kind === 'ai' ? 'txt-ai' : ''}">{m.text}</div>
-                </div>
-              </div>
-            {/if}
-          {/each}
-        </div>
-      </div>
-    {/if}
-
-    {#key timerKey}
-      <div class="timer">
-        <div class="timer-fill" style="animation-duration:{sectorDuration}ms;"></div>
-      </div>
-    {/key}
+...
   </div>
+  -->
 </section>
 
 <style>
-  .hero { background: #fff; padding: 26px 20px 40px; }
+  .hero { background: #fff; padding: 26px 20px 0px; }
 
   .badge {
     display: inline-block; background: #2D5DA8; color: #fff;
