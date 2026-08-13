@@ -15,6 +15,7 @@
   import HeroMobile from '$lib/components/HeroMobile.svelte';
   import RevenueSectionMobile from '$lib/components/RevenueSectionMobile.svelte';
   import SectorsSectionMobile from '$lib/components/SectorsSectionMobile.svelte';
+  import EcosystemSectionMobile from '$lib/components/EcosystemSectionMobile.svelte';
   import GrowthEngineSectionMobile from '$lib/components/GrowthEngineSectionMobile.svelte';
   import FoundersSectionMobile from '$lib/components/FoundersSectionMobile.svelte';
 </script>
@@ -36,7 +37,7 @@
     <HeroMobile />
     <!-- <RevenueSectionMobile /> -->
     <SectorsSectionMobile />
-    <!-- <EcosystemSection /> -->
+    <EcosystemSectionMobile />
     <GrowthEngineSectionMobile />
     <FoundersSectionMobile />
   </svelte:fragment>
