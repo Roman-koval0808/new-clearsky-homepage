@@ -42,8 +42,8 @@
       label: 'Step 1 Discovery:',
       heading: 'Help customers find your business',
       desc: 'Discovery tools increase your visibility across search, social media, and local listings so customers can easily find your business.',
-      videoTitle: 'Discovery — First Step in the Customer Journey',
-      href: 'https://www.youtube.com/watch?v=aBxRSZ0d4r8', thumb: ''
+      thumb1: '/images/video-discovery.jpg',
+      thumb2: '/images/video-discovery.jpg'
     },
     {
       num: 2, name: 'Engagement',
@@ -51,8 +51,8 @@
       label: 'Step 2 Engagement:',
       heading: 'Keep visitors exploring your services',
       desc: 'Interactive experiences and AI-powered tools keep visitors engaged and spending more time exploring what you offer.',
-      videoTitle: 'Engagement — Keeping Visitors Interested',
-      href: 'https://www.youtube.com/watch?v=gVcwd4fL7YY', thumb: ''
+      thumb1: '/images/video-engagement.jpg',
+      thumb2: '/images/video-engagement.jpg'
     },
     {
       num: 3, name: 'Conversion',
@@ -60,8 +60,8 @@
       label: 'Step 3 Conversion:',
       heading: 'Turn inquiries into booked work',
       desc: 'Fast response to every call and message turns conversations into booked appointments — nothing slips through the cracks.',
-      videoTitle: 'Conversion — Turning Inquiries into Bookings',
-      href: 'https://www.youtube.com/watch?v=t41egbiiPtg', thumb: ''
+      thumb1: '/images/video-conversion.jpg',
+      thumb2: '/images/video-conversion.jpg'
     },
     {
       num: 4, name: 'Growth',
@@ -69,8 +69,8 @@
       label: 'Step 4 Growth:',
       heading: 'Grow revenue and momentum',
       desc: 'Booked projects increase, revenue grows, and customer trust compounds into lasting momentum for your business.',
-      videoTitle: 'Growth — Compounding Your Results',
-      href: 'https://www.youtube.com/watch?v=ktBwsfsaQPQ', thumb: ''
+      thumb1: '/images/video-growth.jpg',
+      thumb2: '/images/video-growth.jpg'
     }
   ];
 
@@ -111,18 +111,14 @@
         <div class="heading">{current.heading}</div>
         <p class="desc">{current.desc}</p>
 
-        <a class="video" href={current.href} target="_blank" rel="noopener" aria-label="Watch on YouTube">
-          <div class="video-bg" style={current.thumb ? `background-image:url('${current.thumb}')` : ''}></div>
-          <div class="video-head">
-            <div class="cs-logo">CS</div>
-            <div>
-              <div class="video-title">{current.videoTitle}</div>
-              <div class="video-sub">ClearSky Software Solutions</div>
-            </div>
+        <div class="video-container">
+          <div class="video-player">
+            <img src={current.thumb1} alt="Video 1" />
           </div>
-          <div class="yt-btn"><span class="yt-tri"></span></div>
-          <div class="yt-watch">Watch on <span class="yt-tag">YouTube</span></div>
-        </a>
+          <div class="video-player">
+            <img src={current.thumb2} alt="Video 2" />
+          </div>
+        </div>
       </div>
 
     </div>
@@ -174,14 +170,7 @@
   .heading { font-family: 'Inter', sans-serif; font-size: 23px; font-weight: 700; color: #1F2A44; margin-bottom: 14px; }
   .desc { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.55; color: #555; margin: 0 0 24px; }
 
-  .video { position: relative; display: block; width: 100%; aspect-ratio: 16/9; border-radius: 10px; overflow: hidden; background: #2b2f36; text-decoration: none; }
-  .video-bg { position: absolute; inset: 0; background: #3a4047; background-size: cover; background-position: center; }
-  .video-head { position: absolute; top: 18px; left: 20px; right: 20px; z-index: 2; display: flex; align-items: center; gap: 10px; }
-  .cs-logo { width: 30px; height: 30px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; color: #3D6DB5; flex-shrink: 0; }
-  .video-title { color: #fff; font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 700; line-height: 1.2; }
-  .video-sub { color: #cbd5e3; font-family: 'Inter', sans-serif; font-size: 12px; }
-  .yt-btn { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 74px; height: 52px; background: #FF0000; border-radius: 12px; display: flex; align-items: center; justify-content: center; z-index: 2; }
-  .yt-tri { width: 0; height: 0; border-left: 22px solid #fff; border-top: 13px solid transparent; border-bottom: 13px solid transparent; margin-left: 4px; }
-  .yt-watch { position: absolute; bottom: 14px; right: 18px; z-index: 2; color: #fff; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
-  .yt-tag { background: #FF0000; color: #fff; font-weight: 800; padding: 1px 6px; border-radius: 4px; font-size: 12px; }
+  .video-container { margin: 0 -30px -30px -30px; background: #E1E1E1; padding: 30px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; display: flex; gap: 20px; }
+  .video-player { flex: 1; border-radius: 6px; overflow: hidden; background: #000; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; }
+  .video-player img { width: 100%; height: auto; display: block; object-fit: cover; }
 </style>
