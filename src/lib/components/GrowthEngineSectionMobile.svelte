@@ -35,33 +35,54 @@
       label: 'Step 1 Discovery:', heading: 'Help customers find your business',
       desc: 'Discovery tools increase your visibility across search, social media, and local listings so customers can easily find your business.',
       bullets: ['Local SEO optimization', 'Marketing support', 'Social media management', 'Review Platform', 'Google Business Optimization'],
-      videoTitle: 'Discovery — First Step in the Customer Journey', href: 'https://www.youtube.com/watch?v=aBxRSZ0d4r8', thumb: ''
+      videoTitle1: 'Discovery — First Step in the Customer Journey',
+      thumb1: '/images/video-discovery.jpg', video1: '2AQJsCCKP3M',
+      videoTitle2: 'Discovery Tools in Action',
+      thumb2: '/images/video-discovery.jpg', video2: 'aBxRSZ0d4r8'
     },
     {
       num: 2, name: 'Engagement',
       label: 'Step 2 Engagement:', heading: 'Keep visitors exploring your services',
       desc: 'Interactive experiences and AI-powered tools keep visitors engaged and spending more time exploring what you offer.',
       bullets: ['Interactive experiences', 'AI-powered engagement tools', 'Visual exploration of services', 'Visitors spend more time on your site'],
-      videoTitle: 'Engagement — Keeping Visitors Interested', href: 'https://www.youtube.com/watch?v=gVcwd4fL7YY', thumb: ''
+      videoTitle1: 'Engagement — Keeping Visitors Interested',
+      thumb1: '/images/video-engagement.jpg', video1: 'gVcwd4fL7YY',
+      videoTitle2: 'Engagement Tools in Action',
+      thumb2: '/images/video-engagement.jpg', video2: null
     },
     {
       num: 3, name: 'Conversion',
       label: 'Step 3 Conversion:', heading: 'Turn inquiries into booked work',
       desc: 'Fast response to every call and message turns conversations into booked appointments — nothing slips through the cracks.',
       bullets: ['Calls and inquiries captured', 'Fast response to every customer', 'Conversations turned into bookings'],
-      videoTitle: 'Conversion — Turning Inquiries into Bookings', href: 'https://www.youtube.com/watch?v=t41egbiiPtg', thumb: ''
+      videoTitle1: 'Conversion — Turning Inquiries into Bookings',
+      thumb1: '/images/video-conversion.jpg', video1: 't41egbiiPtg',
+      videoTitle2: 'Conversion Tools in Action',
+      thumb2: '/images/video-conversion.jpg', video2: null
     },
     {
       num: 4, name: 'Growth',
       label: 'Step 4 Growth:', heading: 'Grow revenue and momentum',
       desc: 'Booked projects increase, revenue grows, and customer trust compounds into lasting momentum for your business.',
       bullets: ['Booked projects increase', 'Revenue grows', 'Customer trust and momentum built'],
-      videoTitle: 'Growth — Compounding Your Results', href: 'https://www.youtube.com/watch?v=ktBwsfsaQPQ', thumb: ''
+      videoTitle1: 'Growth — Compounding Your Results',
+      thumb1: '/images/video-growth.jpg', video1: 'ktBwsfsaQPQ',
+      videoTitle2: 'Growth Tools in Action',
+      thumb2: '/images/video-growth.jpg', video2: null
     }
   ];
 
   let active = 0;
   $: current = steps[active];
+
+  let playing1 = false;
+  let playing2 = false;
+
+  function setStep(i) {
+    active = i;
+    playing1 = false;
+    playing2 = false;
+  }
 </script>
 
 <section class="ge">
@@ -73,7 +94,7 @@
 
   <div class="tabs">
     {#each steps as s, i}
-      <button class="tab" class:active={i === active} on:click={() => (active = i)}>{s.name}</button>
+      <button class="tab" class:active={i === active} on:click={() => setStep(i)}>{s.name}</button>
     {/each}
   </div>
 
@@ -86,18 +107,59 @@
       {#each current.bullets as b}<li>{b}</li>{/each}
     </ul>
 
-    <a class="video" href={current.href} target="_blank" rel="noopener" aria-label="Watch on YouTube">
-      <div class="video-bg" style={current.thumb ? `background-image:url('${current.thumb}')` : ''}></div>
-      <div class="video-head">
-        <div class="cs-logo">CS</div>
-        <div>
-          <div class="video-title">{current.videoTitle}</div>
-          <div class="video-sub">ClearSky Software Solutions</div>
+    <div class="video-container">
+      {#if current.video1}
+        <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
+        <div class="video" on:click={() => (playing1 = true)}>
+          {#if playing1}
+            <iframe src="https://www.youtube.com/embed/{current.video1}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="Video 1" style="width:100%; height:100%;"></iframe>
+          {:else}
+            <div class="video-bg" style={current.thumb1 ? `background-image:url('${current.thumb1}')` : ''}></div>
+            <div class="video-head">
+              <div class="cs-logo">CS</div>
+              <div>
+                <div class="video-title">{current.videoTitle1}</div>
+                <div class="video-sub">ClearSky Software Solutions</div>
+              </div>
+            </div>
+            <div class="yt-btn"><span class="yt-tri"></span></div>
+            <div class="yt-watch">Watch on <span class="yt-tag">YouTube</span></div>
+          {/if}
         </div>
-      </div>
-      <div class="yt-btn"><span class="yt-tri"></span></div>
-      <div class="yt-watch">Watch on <span class="yt-tag">YouTube</span></div>
-    </a>
+      {:else if current.thumb1}
+        <div class="video">
+          <div class="video-bg" style={`background-image:url('${current.thumb1}')`}></div>
+        </div>
+      {:else}
+        <div class="video empty"></div>
+      {/if}
+
+      {#if current.video2}
+        <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
+        <div class="video" on:click={() => (playing2 = true)}>
+          {#if playing2}
+            <iframe src="https://www.youtube.com/embed/{current.video2}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="Video 2" style="width:100%; height:100%;"></iframe>
+          {:else}
+            <div class="video-bg" style={current.thumb2 ? `background-image:url('${current.thumb2}')` : ''}></div>
+            <div class="video-head">
+              <div class="cs-logo">CS</div>
+              <div>
+                <div class="video-title">{current.videoTitle2}</div>
+                <div class="video-sub">ClearSky Software Solutions</div>
+              </div>
+            </div>
+            <div class="yt-btn"><span class="yt-tri"></span></div>
+            <div class="yt-watch">Watch on <span class="yt-tag">YouTube</span></div>
+          {/if}
+        </div>
+      {:else if current.thumb2}
+        <div class="video">
+          <div class="video-bg" style={`background-image:url('${current.thumb2}')`}></div>
+        </div>
+      {:else}
+        <div class="video empty"></div>
+      {/if}
+    </div>
   </div>
 </section>
 
@@ -130,13 +192,17 @@
   .bullets li { display: flex; gap: 9px; align-items: flex-start; font-size: 14px; line-height: 1.45; color: #333; margin-bottom: 8px; }
   .bullets li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #3D6DB5; margin-top: 7px; flex-shrink: 0; }
 
-  .video { position: relative; display: block; width: 100%; aspect-ratio: 16/9; border-radius: 10px; overflow: hidden; background: #2b2f36; text-decoration: none; }
-  .video-bg { position: absolute; inset: 0; background: #3a4047; background-size: cover; background-position: center; }
+  .video-container { margin: 0 -20px -24px -20px; background: #E1E1E1; padding: 20px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; display: flex; flex-direction: column; gap: 16px; }
+  .video { position: relative; display: block; width: 100%; aspect-ratio: 16/9; border-radius: 10px; overflow: hidden; background: #2b2f36; text-decoration: none; cursor: pointer; }
+  .video.empty { background: #cfd5dc; box-shadow: inset 0 2px 6px rgba(0,0,0,0.05); cursor: default; }
+  .video-bg { position: absolute; inset: 0; background: #3a4047; background-size: cover; background-position: center; transition: transform 0.3s; }
+  .video:hover .video-bg { transform: scale(1.05); }
   .video-head { position: absolute; top: 14px; left: 14px; right: 14px; z-index: 2; display: flex; align-items: center; gap: 9px; }
   .cs-logo { width: 26px; height: 26px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 800; color: #3D6DB5; flex-shrink: 0; }
   .video-title { color: #fff; font-size: 13px; font-weight: 700; line-height: 1.2; }
   .video-sub { color: #cbd5e3; font-size: 10px; }
-  .yt-btn { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 60px; height: 42px; background: #FF0000; border-radius: 10px; display: flex; align-items: center; justify-content: center; z-index: 2; }
+  .yt-btn { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 60px; height: 42px; background: #FF0000; border-radius: 10px; display: flex; align-items: center; justify-content: center; z-index: 2; transition: background 0.2s; }
+  .video:hover .yt-btn { background: #e60000; }
   .yt-tri { width: 0; height: 0; border-left: 18px solid #fff; border-top: 11px solid transparent; border-bottom: 11px solid transparent; margin-left: 3px; }
   .yt-watch { position: absolute; bottom: 11px; right: 14px; z-index: 2; color: #fff; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 5px; }
   .yt-tag { background: #FF0000; color: #fff; font-weight: 800; padding: 1px 5px; border-radius: 4px; font-size: 10.5px; }

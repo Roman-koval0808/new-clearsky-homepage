@@ -43,7 +43,9 @@
       heading: 'Help customers find your business',
       desc: 'Discovery tools increase your visibility across search, social media, and local listings so customers can easily find your business.',
       thumb1: '/images/video-discovery.jpg',
-      thumb2: '/images/video-discovery.jpg'
+      video1: '2AQJsCCKP3M',
+      thumb2: '/images/video-discovery.jpg',
+      video2: 'aBxRSZ0d4r8'
     },
     {
       num: 2, name: 'Engagement',
@@ -52,7 +54,9 @@
       heading: 'Keep visitors exploring your services',
       desc: 'Interactive experiences and AI-powered tools keep visitors engaged and spending more time exploring what you offer.',
       thumb1: '/images/video-engagement.jpg',
-      thumb2: '/images/video-engagement.jpg'
+      video1: 'gVcwd4fL7YY',
+      thumb2: '/images/video-engagement.jpg',
+      video2: null
     },
     {
       num: 3, name: 'Conversion',
@@ -61,7 +65,9 @@
       heading: 'Turn inquiries into booked work',
       desc: 'Fast response to every call and message turns conversations into booked appointments — nothing slips through the cracks.',
       thumb1: '/images/video-conversion.jpg',
-      thumb2: '/images/video-conversion.jpg'
+      video1: 't41egbiiPtg',
+      thumb2: '/images/video-conversion.jpg',
+      video2: null
     },
     {
       num: 4, name: 'Growth',
@@ -70,11 +76,22 @@
       heading: 'Grow revenue and momentum',
       desc: 'Booked projects increase, revenue grows, and customer trust compounds into lasting momentum for your business.',
       thumb1: '/images/video-growth.jpg',
-      thumb2: '/images/video-growth.jpg'
+      video1: 'ktBwsfsaQPQ',
+      thumb2: '/images/video-growth.jpg',
+      video2: null
     }
   ];
 
   $: current = steps[active];
+
+  let playing1 = false;
+  let playing2 = false;
+
+  function setStep(i) {
+    active = i;
+    playing1 = false;
+    playing2 = false;
+  }
 </script>
 
 <section class="ge">
@@ -93,7 +110,7 @@
       <!-- LEFT: 2x2 step grid -->
       <div class="grid">
         {#each steps as s, i}
-          <button class="step" class:active={i === active} on:click={() => (active = i)}>
+          <button class="step" class:active={i === active} on:click={() => setStep(i)}>
             <div class="step-head">
               <div class="badge">{s.num}</div>
               <h3>{s.name}</h3>
@@ -112,12 +129,39 @@
         <p class="desc">{current.desc}</p>
 
         <div class="video-container">
-          <div class="video-player">
-            <img src={current.thumb1} alt="Video 1" />
-          </div>
-          <div class="video-player">
-            <img src={current.thumb2} alt="Video 2" />
-          </div>
+          {#if current.video1}
+            <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
+            <div class="video-player" on:click={() => (playing1 = true)}>
+              {#if playing1}
+                <iframe src="https://www.youtube.com/embed/{current.video1}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="Video 1" style="width:100%; height:100%;"></iframe>
+              {:else}
+                <img src={current.thumb1} alt="Video 1" />
+              {/if}
+            </div>
+          {:else if current.thumb1}
+            <div class="video-player">
+              <img src={current.thumb1} alt="Video 1" />
+            </div>
+          {:else}
+            <div class="video-player empty"></div>
+          {/if}
+
+          {#if current.video2}
+            <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
+            <div class="video-player" on:click={() => (playing2 = true)}>
+              {#if playing2}
+                <iframe src="https://www.youtube.com/embed/{current.video2}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="Video 2" style="width:100%; height:100%;"></iframe>
+              {:else}
+                <img src={current.thumb2} alt="Video 2" />
+              {/if}
+            </div>
+          {:else if current.thumb2}
+            <div class="video-player">
+              <img src={current.thumb2} alt="Video 2" />
+            </div>
+          {:else}
+            <div class="video-player empty"></div>
+          {/if}
         </div>
       </div>
 
@@ -171,6 +215,7 @@
   .desc { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.55; color: #555; margin: 0 0 24px; }
 
   .video-container { margin: 0 -30px -30px -30px; background: #E1E1E1; padding: 30px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; display: flex; gap: 20px; }
-  .video-player { flex: 1; border-radius: 6px; overflow: hidden; background: #000; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; }
-  .video-player img { width: 100%; height: auto; display: block; object-fit: cover; }
+  .video-player { flex: 1; position: relative; border-radius: 6px; overflow: hidden; background: #000; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; aspect-ratio: 16/9; cursor: pointer; }
+  .video-player.empty { background: #cfd5dc; box-shadow: inset 0 2px 6px rgba(0,0,0,0.05); cursor: default; }
+  .video-player img { width: 100%; height: 100%; display: block; object-fit: cover; }
 </style>
