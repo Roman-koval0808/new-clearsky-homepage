@@ -6,9 +6,10 @@
   export let intro = 'Your website should look as professional as the business behind it. ClearSky websites are modern, branded, mobile-friendly, and built to help turn visitors into leads.';
   export let seeLine = 'Swipe through three sample designs';
   export let sites = [
-    { label: 'Roofing sample site', href: '#' },
-    { label: 'Kitchen remodel sample site', href: '#' },
-    { label: 'Custom home sample site', href: '#' }
+    { label: 'Custom home sample site', href: '#', src: '/images/trade-images/trade-images-1.png' },
+    { label: 'Roofing sample site', href: '#', src: '/images/trade-images/trade-images-2.png' },
+    { label: 'Kitchen remodel sample site', href: '#', src: '/images/trade-images/trade-images-3.png' },
+    { label: 'Plumbing sample site', href: '#', src: '/images/trade-images/trade-images-4.jpg' }
   ];
 
   let i = 0;
@@ -34,12 +35,12 @@
     <div class="track" style={`transform: translateX(${-i * 100}%)`}>
       {#each sites as s}
         <div class="slide">
-          <a class="site mockup-card" href={s.href} target="_blank" rel="noopener">
+          <a class="site mockup-card" href={s.href} target="_blank" rel="noopener" style="background-image: url('{s.src}');">
             <div class="browser-bar">
               <span></span><span></span><span></span>
             </div>
             <div class="play-btn"><div class="play-icon"></div></div>
-            <div class="mockup-label">{s.label}</div>
+            <div class="mockup-label-wrapper"><div class="mockup-label">{s.label}</div></div>
           </a>
         </div>
       {/each}
@@ -66,14 +67,16 @@
   
   .mockup-card {
     position: relative;
-    background: linear-gradient(160deg, #3d6fb3 0%, #294c7d 100%);
+    background-color: #3d6fb3;
+    background-size: cover;
+    background-position: center;
     aspect-ratio: 4 / 3;
     display: flex;
     flex-direction: column;
   }
   .browser-bar {
     height: 24px;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.4);
     display: flex;
     align-items: center;
     padding: 0 12px;
@@ -83,7 +86,7 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.6);
   }
   .play-btn {
     position: absolute;
@@ -107,16 +110,21 @@
     border-color: transparent transparent transparent #3d6fb3;
     margin-left: 4px;
   }
-  .mockup-label {
+  .mockup-label-wrapper {
     position: absolute;
-    bottom: 20px;
+    bottom: 0;
     left: 0;
     width: 100%;
+    background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+    padding: 30px 0 16px;
+  }
+  .mockup-label {
     text-align: center;
     color: #ffffff;
     font-family: 'Inter', sans-serif;
     font-size: 13px;
     font-weight: 600;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
   }
 
   .dots { display: flex; justify-content: center; gap: 9px; margin-top: 18px; }

@@ -121,10 +121,12 @@
     </div>
 
     <!-- ── RIGHT: live signal carousel ── -->
-    <div
+    <a
+      href="/trades"
       class="visual"
       style="width:{visualWidth}px; height:{visualHeight}px;
-             background-image:url('{sectors[activeSector].photo}');"
+             background-image:url('{sectors[activeSector].photo}');
+             display: block; cursor: pointer;"
     >
       <!-- optional CSS fade in case a photo isn't pre-faded (top + left) -->
       <div class="bleed" aria-hidden="true"></div>
@@ -165,7 +167,7 @@
           <div class="timer-fill" style="animation-duration:{sectorDuration}ms;"></div>
         </div>
       {/key}
-    </div>
+    </a>
 
   </div>
 </section>
