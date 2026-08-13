@@ -36,7 +36,7 @@
   export let sectors = [
     {
       pill: 'Tourism & Lodges',
-      photo: '/images/hero-tourism.png',
+      photo: '/images/trade-images/trade-images-4.jpg',
       messages: [
         { kind: 'user', avatar: 'RD', name: 'Rodger Davidson', chip: 'Missed Call', chipType: 'voice',
           text: '[Voicemail] \u201cMe and my son want to do fall fishing. Any October openings?\u201d' },
