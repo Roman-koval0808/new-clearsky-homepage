@@ -7,6 +7,7 @@
   import Hero from '$lib/components/Hero.svelte';
   import RevenueSection from '$lib/components/RevenueSection.svelte';
   import SectorsSection from '$lib/components/SectorsSection.svelte';
+  import EcosystemSection from '$lib/components/EcosystemSection.svelte';
   import GrowthEngineSection from '$lib/components/GrowthEngineSection.svelte';
   import FoundersSection from '$lib/components/FoundersSection.svelte';
 
@@ -24,8 +25,9 @@
   <svelte:fragment slot="desktop">
     <Navigation active="/" />
     <Hero />
-    <RevenueSection />
+    <!-- <RevenueSection /> -->
     <SectorsSection />
+    <EcosystemSection />
     <GrowthEngineSection />
     <FoundersSection />
   </svelte:fragment>
@@ -34,6 +36,7 @@
     <HeroMobile />
     <RevenueSectionMobile />
     <SectorsSectionMobile />
+    <EcosystemSection />
     <GrowthEngineSectionMobile />
     <FoundersSectionMobile />
   </svelte:fragment>

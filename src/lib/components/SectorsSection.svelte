@@ -38,10 +38,10 @@
     "ClearSky Business Platform (CBP) is organized into four business types: Trades, Tourism, Professional Services and Manufacturers. Each sector has its own customized operating playbook. Clicking the links below, we'll introduce you to the platform features and how we'll achieve revenue growth for your business.";
 
   export let sectors = [
-    { header: 'you work with your hands',         href: '/trades',                photo: '/images/sector-trades.jpg',        caption: 'Builders, roofers, plumbers, HVAC, landscapers, electricians, mechanics' },
-    { header: 'you fulfill lifetime experiences',  href: '/tourism',               photo: '/images/sector-tourism.jpg',       caption: 'Lodges, resorts, fishing & hunting outfitters, guides, outdoor recreation & more …' },
-    { header: 'you provide professional services', href: '/professional-services', photo: '/images/sector-professional.jpg',  caption: 'Lawyers, accountants, dentists, consultants, chiropractors, architects & more …' },
-    { header: 'you transform resources',           href: '/manufacturers',         photo: '/images/sector-manufacturing.jpg', caption: 'Sawmill operations, solid wood fabricators, metal fabricators, manufacturers & more…' }
+    { href: '/trades',                photo: '/images/sector-trades.jpg',        caption: 'Builders, roofers, plumbers, HVAC, landscapers, electricians, mechanics' },
+    { href: '/tourism',               photo: '/images/sector-tourism.jpg',       caption: 'Lodges, resorts, fishing & hunting outfitters, guides, outdoor recreation & more …', launchingSoon: true },
+    { href: '/professional-services', photo: '/images/sector-professional.jpg',  caption: 'Lawyers, accountants, dentists, consultants, chiropractors, architects & more …', launchingSoon: true },
+    { href: '/manufacturers',         photo: '/images/sector-manufacturing.jpg', caption: 'Sawmill operations, solid wood fabricators, metal fabricators, manufacturers & more…', launchingSoon: true }
   ];
 </script>
 
@@ -51,12 +51,16 @@
     <h2 class="title">{title}</h2>
     <p class="intro">{intro}</p>
 
+    <h3 class="licenses-header">Licenses for Contractors will be available Oct 01/2026 </h3>
+    
     <div class="grid">
       {#each sectors as s}
-        <a class="card" href={s.href}>
-          <div class="header">{s.header}</div>
+        <a class="card {s.launchingSoon ? 'launching-soon' : ''}" href={s.launchingSoon ? '#' : s.href}>
           <div class="photo">
             <div class="img" style="background-image:url('{s.photo}');"></div>
+            {#if s.launchingSoon}
+              <div class="launch-overlay">Launching soon</div>
+            {/if}
             <div class="accent"></div>
             <div class="caption"><p>{s.caption}</p></div>
           </div>
@@ -77,7 +81,7 @@
   }
   .intro {
     font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px;
-    line-height: 1.55; color: #333; text-align: left; margin: 0 0 44px;
+    line-height: 1.55; color: #333; text-align: left; margin: 0 0 20px;
   }
 
   .grid { display: flex; gap: 24px; }
@@ -116,11 +120,37 @@
   }
 
   /* hover C */
-  .card:hover {
+  .card:not(.launching-soon):hover {
     transform: translateY(-6px);
     box-shadow: 0 16px 34px rgba(40,70,120,.18);
     border-color: #F5841F;
   }
-  .card:hover .img { transform: scale(1.06); }
-  .card:hover .accent { transform: scaleX(1); }
+  .card:not(.launching-soon):hover .img { transform: scale(1.06); }
+  .card:not(.launching-soon):hover .accent { transform: scaleX(1); }
+  .licenses-header {
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+    
+  }
+
+  .launch-overlay {
+    position: absolute;
+    top: 115px; /* Centered in the 230px visible photo area above the caption */
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    background: rgba(225, 225, 225, 0.92);
+    color: #000;
+    text-align: center;
+    font-family: 'Playpen Sans', cursive, sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    padding: 10px 0;
+    z-index: 3;
+  }
+
+  .card.launching-soon {
+    cursor: default;
+  }
 </style>
