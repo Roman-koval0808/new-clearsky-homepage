@@ -5,6 +5,9 @@
   export let posterSrc = "/images/about/platform-video-poster.png";
   export let videoBar = "ClearSky Business Platform";
   export let videoHref = "https://www.youtube.com/watch?v=EDQ3xZKlMC8";
+  export let videoEmbed = "https://www.youtube.com/embed/EDQ3xZKlMC8?autoplay=1";
+
+  let playing = false;
 </script>
 
 <section class="ab-sec ab-white">
@@ -16,11 +19,23 @@
       <p class="ab-lead">We break down the barriers that hold smaller firms back &mdash; giving you the same advantages as the largest companies.</p>
     </div>
     <div class="ab-right">
-      <a class="ab-video" href={videoHref} target="_blank" rel="noopener">
-        <div class="vbar">{videoBar}</div>
-        <img class="poster" src={posterSrc} alt={videoBar} />
-        <span class="play"></span>
-      </a>
+      {#if !playing}
+        <button class="ab-video" type="button" on:click={() => playing = true}>
+          <div class="vbar">{videoBar}</div>
+          <img class="poster" src={posterSrc} alt={videoBar} />
+          <span class="play"></span>
+        </button>
+      {:else}
+        <div class="ab-video-embed">
+          <iframe 
+            src={videoEmbed} 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      {/if}
     </div>
   </div>
 </section>
@@ -37,11 +52,14 @@
   .ab-h1 { font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:46px; line-height:1.05; color:#3D6DB5; margin:0 0 22px; }
   .ab-lead { font-family:'Inter',sans-serif; font-size:16px; line-height:1.6; color:#1F2A44; margin:0 0 16px; }
 
-  .ab-video { display:block; width:100%; margin:0; border-radius:10px; overflow:hidden; position:relative; box-shadow:0 12px 30px rgba(20,30,50,.18); text-decoration:none; }
+  .ab-video { display:block; width:100%; margin:0; border-radius:10px; overflow:hidden; position:relative; box-shadow:0 12px 30px rgba(20,30,50,.18); text-decoration:none; appearance:none; background:none; border:none; padding:0; cursor:pointer; }
   .ab-video .poster { width:100%; height:auto; display:block; }
   .ab-video .vbar { position:absolute; top:0; left:0; right:0; background:rgba(20,30,50,.80); color:#fff; font-family:'Inter',sans-serif; font-size:15px; font-weight:700; text-align:center; padding:9px 10px; z-index:2; }
   .ab-video .play { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:66px; height:66px; border-radius:50%; background:rgba(255,255,255,.92); display:flex; align-items:center; justify-content:center; box-shadow:0 4px 14px rgba(0,0,0,.3); }
   .ab-video .play::after { content:""; border-style:solid; border-width:13px 0 13px 22px; border-color:transparent transparent transparent #3D6DB5; margin-left:5px; }
+
+  .ab-video-embed { width:100%; aspect-ratio:1120/658; border-radius:10px; overflow:hidden; box-shadow:0 12px 30px rgba(20,30,50,.18); }
+  .ab-video-embed iframe { width:100%; height:100%; display:block; }
 
   @media (max-width:1100px) { .ab-hero { flex-direction:column; } .ab-right { width:100%; } }
 </style>

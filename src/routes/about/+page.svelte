@@ -26,7 +26,7 @@
     <AboutHero />
     <WhatWeDoSection />
     <OurVisionSection />
-    <WhyClearSkySection />
+    <!-- <WhyClearSkySection /> -->
     <FoundersSection />
   </svelte:fragment>
   <svelte:fragment slot="mobile">
