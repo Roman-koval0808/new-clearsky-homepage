@@ -22,6 +22,16 @@
     if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1));
     x0 = null;
   };
+
+  let activeLightboxImage = null;
+
+  function openLightbox(src) {
+    activeLightboxImage = src;
+  }
+
+  function closeLightbox() {
+    activeLightboxImage = null;
+  }
 </script>
 
 <section class="wc">
@@ -35,7 +45,7 @@
     <div class="track" style={`transform: translateX(${-i * 100}%)`}>
       {#each sites as s}
         <div class="slide">
-          <a class="site mockup-card" href={s.href} target="_blank" rel="noopener" style="background-image: url('{s.src}');">
+          <a class="site mockup-card" href={s.href} on:click|preventDefault={() => openLightbox(s.src)} style="background-image: url('{s.src}');">
             <div class="browser-bar">
               <span></span><span></span><span></span>
             </div>
@@ -52,6 +62,16 @@
       <button class="dot" class:active={k === i} on:click={() => go(k)} aria-label={`Go to slide ${k + 1}`}></button>
     {/each}
   </div>
+
+  {#if activeLightboxImage}
+    <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
+    <div class="lightbox" on:click={closeLightbox}>
+      <button class="lightbox-close" on:click|stopPropagation={closeLightbox} aria-label="Close lightbox">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <img src={activeLightboxImage} alt="Expanded website view" on:click|stopPropagation />
+    </div>
+  {/if}
 </section>
 
 <style>
@@ -130,4 +150,43 @@
   .dots { display: flex; justify-content: center; gap: 9px; margin-top: 18px; }
   .dot { width: 8px; height: 8px; border-radius: 50%; border: 0; padding: 0; background: #c2cede; cursor: pointer; transition: background .2s ease, width .2s ease; }
   .dot.active { background: #3D6DB5; width: 22px; border-radius: 5px; }
+
+  .lightbox {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+  }
+  .lightbox img {
+    width: 1300px;
+    max-width: 100%;
+    aspect-ratio: 1300 / 731;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .lightbox-close svg {
+    width: 24px;
+    height: 24px;
+  }
 </style>

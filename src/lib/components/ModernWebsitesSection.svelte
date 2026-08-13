@@ -35,6 +35,16 @@
   function prev() {
     if (i > 0) i--;
   }
+
+  let activeLightboxImage = null;
+
+  function openLightbox(src) {
+    activeLightboxImage = src;
+  }
+
+  function closeLightbox() {
+    activeLightboxImage = null;
+  }
 </script>
 
 <section class="websites">
@@ -52,7 +62,7 @@
       <div class="viewport">
         <div class="site-row" style="transform: translateX(calc({-i} * (100% / 3) + {-i} * 5px));">
           {#each sites as s}
-            <a class="site-card mockup-card" href={s.href} target="_blank" rel="noopener" style="background-image: url('{s.src}');">
+            <a class="site-card mockup-card" href={s.href} on:click|preventDefault={() => openLightbox(s.src)} style="background-image: url('{s.src}');">
               <div class="browser-bar">
                 <span></span><span></span><span></span>
               </div>
@@ -68,6 +78,16 @@
       </button>
     </div>
   </div>
+
+  {#if activeLightboxImage}
+    <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
+    <div class="lightbox" on:click={closeLightbox}>
+      <button class="lightbox-close" on:click|stopPropagation={closeLightbox} aria-label="Close lightbox">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <img src={activeLightboxImage} alt="Expanded website view" on:click|stopPropagation />
+    </div>
+  {/if}
 </section>
 
 <style>
@@ -152,4 +172,49 @@
 
   .site-card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(40,70,120,.18); }
   .site-card:hover .play-btn { transform: translate(-50%, -50%) scale(1.05); }
+
+  .lightbox {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    backdrop-filter: blur(4px);
+    cursor: zoom-out;
+  }
+  .lightbox img {
+    width: 1300px;
+    max-width: 100%;
+    aspect-ratio: 1300 / 731;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    cursor: default;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  .lightbox-close svg {
+    width: 28px;
+    height: 28px;
+  }
 </style>
