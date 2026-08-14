@@ -28,7 +28,9 @@
 
   export let circleSrc = '/images/trades-chat-circle.jpg';
   export let videoThumb = '/images/trades-video.jpg';
-  export let videoHref = '#';
+  export let videoId = 'AnxDnjOVsuQ'; // Placeholder video ID
+  
+  let playing = false;
 </script>
 
 <section class="trades-hero">
@@ -39,9 +41,10 @@
       <h1>Turn More Local Inquiries<br>Into <span class="o">Booked Work</span></h1>
       <p>ClearSky helps contractors get discovered locally, showcase their work, and convert more inquiries into booked projects. Built around the real contractor customer journey, the platform improves visibility, engagement, and follow-up.</p>
       <p class="lead">When you add AI and expertise to Discovery, Engagement, Conversion and Growth, your business revenue can DOUBLE — we guarantee 20% after 6 months, or up to 100% back.</p>
-      <a class="video" href={videoHref}>
+      <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
+      <div class="video" on:click={() => playing = true}>
         <img src={videoThumb} alt="Watch the trades video" />
-      </a>
+      </div>
     </div>
 
     <div class="right">
@@ -49,6 +52,18 @@
     </div>
 
   </div>
+
+  {#if playing && videoId}
+    <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
+    <div class="lightbox" on:click={() => playing = false}>
+      <button class="lightbox-close" on:click|stopPropagation={() => playing = false} aria-label="Close lightbox">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="video-wrapper" on:click|stopPropagation>
+        <iframe src="https://www.youtube.com/embed/{videoId}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="Watch the trades video"></iframe>
+      </div>
+    </div>
+  {/if}
 </section>
 
 <style>
@@ -62,9 +77,57 @@
   .left p { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; color: #1F2A44; margin: 0 0 22px; text-align: justify; }
   .left p.lead { margin-bottom: 28px; }
 
-  .video { display: block; width: 440px; max-width: 100%; border-radius: 8px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,.15); }
+  .video { display: block; width: 440px; max-width: 100%; border-radius: 8px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,.15); position: relative; cursor: pointer; background: #000; }
   .video img { width: 100%; height: auto; display: block; }
 
   .right { flex-shrink: 0; width: 640px; }
   .right img { width: 100%; height: auto; display: block; }
+
+  .lightbox {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+  }
+  .video-wrapper {
+    width: 100%;
+    max-width: 1100px;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  }
+  .video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  .lightbox-close svg {
+    width: 28px;
+    height: 28px;
+  }
 </style>

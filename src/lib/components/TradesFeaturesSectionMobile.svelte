@@ -115,7 +115,7 @@
     "hero": "/images/features/hero-local-seo.jpg",
     "titleBar": "What is Local SEO",
     "play": true,
-    "videoHref": "#",
+    "videoHref": "https://youtube.com/shorts/1HdpTUrSQ30",
     "paras": [
       "For trades local visibility is revenue. When people need a contractor, they hire whoever ranks first in their area.",
       "That’s why a ClearSky client never tackles local SEO alone. As a client of ours we map your local market using our ranking grid tool—revealing exactly where you dominate and where competitors are stealing your leads.",
@@ -127,7 +127,7 @@
     "hero": "/images/features/hero-content-radar.jpg",
     "titleBar": null,
     "play": true,
-    "videoHref": "#",
+    "videoHref": 'https://youtu.be/BB7FlkQ4KFg',
     "paras": [
       "Content is the entire game — it’s how customers find you, judge you, and decide. The hard part isn’t producing content; it’s knowing which content actually drives business.",
       "ContentRadar answers that by watching the hundreds of the best operators in your market and tracking what works for them: the blogs that rank, the questions customers keep asking, the videos and social posts pulling real engagement, the paid campaigns and keywords converting.",
@@ -138,7 +138,7 @@
     "hero": "/images/features/hero-lead-grabber.png",
     "titleBar": null,
     "play": false,
-    "videoHref": "#",
+    "videoHref": 'https://youtube.com/shorts/SwQXj4TbfSE',
     "paras": [
       "Speed is everything in conversion — a lead that waits goes cold fast, and most businesses lose deals simply by answering too late.",
       "Our Lead Grabber closes that gap. The moment a visitor leaves their number, it’s texted straight to the owner through your A2P line, ready to answer by text or call in seconds. But it doesn’t rely on memory.",
@@ -161,7 +161,7 @@
     "hero": "/images/features/hero-reviews.jpg",
     "titleBar": "Reviews",
     "play": true,
-    "videoHref": "#",
+    "videoHref": 'https://youtu.be/23SxfEMZkso',
     "paras": [
       "A single unanswered negative review costs you more than you think. It drops your local search ranking, signals indifference to every future customer reading it, and hands the job to your competitor.",
       "ClearSky’s Review Platform captures every Google Business Profile review the moment it lands — running it through a seven-step identification process before AI reads the sentiment, flags complaints, surfaces opportunities, and generates a suggested response.",
@@ -173,7 +173,7 @@
     "hero": "/images/features/hero-viewroom.jpg",
     "titleBar": null,
     "play": false,
-    "videoHref": "#",
+    "videoHref": 'https://youtu.be/4iDlJO6XrLw',
     "paras": [
       "ViewRoom is a live virtual showroom embedded directly into your webpage — and it knows more about your visitor than any sales rep walking a show floor ever could.",
       "Before the rep enters, they’re briefed: which videos the visitor watched, which questions they asked the AI, how long they stayed.",
@@ -185,7 +185,7 @@
     "hero": "/images/features/hero-ai-assistant.jpg",
     "titleBar": "AI Assistant",
     "play": true,
-    "videoHref": "#",
+    "videoHref": 'https://youtube.com/shorts/4G9B0yY5NW4',
     "paras": [
       "Not all AI responses are equal — and ClearSky’s AI Assistant is built to know the difference.",
       "Live customer questions on your webpage or in ViewRoom are answered instantly, within guardrails you set, with no human delay.",
@@ -198,7 +198,7 @@
     "hero": "/images/features/hero-video-audio.png",
     "titleBar": "Video / Audio",
     "play": false,
-    "videoHref": "#",
+    "videoHref": 'https://youtu.be/SMidISs57H8',
     "paras": [
       "AI video and image tools let small businesses produce scroll-stopping content without studio budgets. What once required a crew, equipment, and thousands of dollars can now be generated in minutes for a fraction of the cost.",
       "That means more frequent posting, more A/B testing, and fresh visuals tailored to each platform—all proven drivers of engagement. Small teams can finally compete with bigger brands on production quality while keeping spend lean. Just as important: this sector is moving at breakneck speed.",
@@ -210,7 +210,7 @@
     "hero": "/images/features/hero-ai-visualizer.png",
     "titleBar": "AI Visualizer",
     "play": true,
-    "videoHref": "#",
+    "videoHref": 'https://youtu.be/wqY2-U11Qa4',
     "paras": [
       "Our AI Visualizer transforms how homeowners and designers reimagine residential exteriors. Upload a photo of any house, select a region, and instantly preview realistic modifications: swap doors and windows, add a dormer, or extend the structure with an additional floor.",
       "Powered by advanced image segmentation and generative inpainting, the tool blends new elements seamlessly into the original photo while preserving lighting, perspective, and architectural style.",
@@ -223,7 +223,7 @@
     "hero": "/images/features/hero-fotojobber.jpg",
     "titleBar": "FotoJobber",
     "play": false,
-    "videoHref": "#",
+    "videoHref": 'https://youtube.com/shorts/GjHzDZY1pVU',
     "paras": [
       "FotoJobber lets a homeowner skip the call-out visit entirely. Take a photo of the problem — a leaking tap, a tired bathroom, a cracked pipe — circle the spot, add a quick note about what you want done, and send it.",
       "A licensed contractor reviews it and sends back an accurate quote within two hours.",
@@ -235,7 +235,7 @@
     "hero": "/images/features/hero-marketing.jpg",
     "titleBar": null,
     "play": true,
-    "videoHref": "#",
+    "videoHref": 'https://youtu.be/_5L2QZnLvNA',
     "paras": [
       "ClearSky builds your pipeline before a customer picks up the phone. ContentRadar monitors what homeowners in your market are actively searching for — surfacing trending demand in your trade so your content is visible when intent is highest.",
       "Every visitor to your site is scored in real time, classified by intent, and served a page calibrated to where they are in their decision. The person researching a water heater in January gets nurtured through the winter and converted in March.",
@@ -247,7 +247,7 @@
     "hero": "/images/features/hero-communication-hub.jpg",
     "titleBar": null,
     "play": false,
-    "videoHref": "#",
+    "videoHref": 'https://youtu.be/oXE3-UcclCU',
     "paras": [
       "Every call, text, email, and form submission flows into a single communication hub — a unified record that knows who the contact is, what they have asked before, and what they are most likely to need next.",
       "Every conversation connects to a live profile. As interactions accumulate, the engagement score reflects the real level of intent — a customer who calls, returns to the website, and opens a follow-up message is scored differently than someone who browsed once and left.",
@@ -259,7 +259,7 @@
     "hero": "/images/features/hero-business-intelligence.jpg",
     "titleBar": null,
     "play": false,
-    "videoHref": "#",
+    "videoHref": 'https://youtu.be/Hp7tqzCCb_4',
     "paras": [
       "A contractor, electrician, or HVAC contractor does not have time to manage leads. They are on the tools all day and cannot monitor who is visiting their website or why.",
       "ClearSky watches every visitor in real time, classifies their intent — researching, comparing quotes, ready to book, or emergency — and adapts the website to match before the visitor has scrolled past the fold.",
@@ -271,7 +271,7 @@
     "hero": "/images/features/hero-conversational-ai.jpg",
     "titleBar": null,
     "play": false,
-    "videoHref": "#",
+    "videoHref": 'https://youtube.com/shorts/MlDIkojKL3o',
     "paras": [
       "When a homeowner calls about a plumbing emergency at 2am, ClearSky’s conversational AI is already loaded with their profile, intent bucket, and site history before the first word is spoken.",
       "The IVR does not route blindly — it responds intelligently, confirms the problem, sets arrival expectations, and qualifies the job while the rep is being notified. The communication hub holds the customer engaged so the job is never lost to a slow response.",
@@ -283,7 +283,7 @@
     "hero": "/images/features/hero-social-media.jpg",
     "titleBar": null,
     "play": false,
-    "videoHref": "#",
+    "videoHref": 'https://youtu.be/z9eTDw2XxrI',
     "paras": [
       "Every visitor who reaches the comparison stage of their decision is not looking for more information — they are looking for permission to choose you over the alternative. Social proof is what gives them that permission. ClearSky monitors review velocity, job counts, response times, and gallery freshness as active signals, not static content. When the platform detects a visitor in the Comparison bucket, the proof block adapts — surfacing the most relevant credentials, the most recent work, and the strongest trust signals for that specific visitor’s property type, location, and concern. A homeowner researching a bathroom renovation sees something different than a landlord managing a rental emergency. The network amplifies this further — anonymized review patterns across the peer group reveal which proof signals are actually converting in the current market, not which ones the business assumes are working."
     ]
@@ -292,7 +292,7 @@
     "hero": "/images/features/hero-call-tracking.jpg",
     "titleBar": null,
     "play": false,
-    "videoHref": "#",
+    "videoHref": 'https://youtu.be/jdvuFkF2PNo',
     "paras": [
       "Not every customer starts online. A print ad in the Daily Press, a Google Business Profile listing, a Facebook post, and a job site sign can all generate a phone call — and without call tracking, every one of those calls looks identical.",
       "ClearSky assigns a unique digital number to every channel. The moment a call comes in, the platform knows exactly which channel, which campaign, and which placement generated it. That attribution data flows directly into the business intelligence engine — enriching the customer profile, informing budget decisions, and revealing which channels are actually driving revenue versus which ones are just generating noise.",
@@ -303,7 +303,7 @@
     "hero": "/images/features/hero-dedicated-support.png",
     "titleBar": null,
     "play": false,
-    "videoHref": "#",
+    "videoHref": 'https://youtube.com/shorts/NeqN7UEUG6E',
     "paras": [
       "Running a business means every hour spent managing technology, chasing leads, and interpreting data is an hour not spent on the tools, with clients, or growing the operation.",
       "ClearSky includes four hours of dedicated human support every month — not a help desk, not a ticket queue, but a knowledgeable partner who understands your market, your platform, and your growth targets.",
@@ -316,7 +316,7 @@
     "hero": "/images/features/hero-competitor-analysis.jpg",
     "titleBar": null,
     "play": false,
-    "videoHref": "#",
+    "videoHref": 'https://youtu.be/HGuX_OT6JaE',
     "paras": [
       "Your competitor is not standing still. They are optimising their Google Business Profile, accumulating reviews, climbing local search rankings, and increasingly showing up in AI-generated answers before your business does.",
       "ClearSky monitors the competitive landscape across every channel that matters. We track local search ranking movements — yours and theirs.",
@@ -329,7 +329,7 @@
     "hero": "/images/features/hero-reporting.jpg",
     "titleBar": null,
     "play": false,
-    "videoHref": "#",
+    "videoHref": 'https://youtube.com/shorts/LgyWJlb8Kis',
     "paras": [
       "Growth without visibility is just activity. ClearSky’s reporting layer turns every signal the platform captures — every session, every call, every conversion, every channel interaction — into a structured set of KPIs that tell you exactly what is working, what is not, and where to invest next.",
       "Which channels are producing qualified leads versus empty traffic. Which content sequences are moving visitors from Comparison to Active Project. Which persona segments are converting at the highest value. Which communication hub sequences are closing jobs and which ones are going silent. Every metric is attributed, not assumed. Every month the numbers get sharper because the platform is learning.",
@@ -341,7 +341,7 @@
     "hero": "/images/features/hero-network.jpg",
     "titleBar": null,
     "play": false,
-    "videoHref": "#",
+    "videoHref": 'https://youtube.com/shorts/IG0gQo7RADY',
     "paras": [
       "No single plumber, electrician, or HVAC contractor generates enough data to see what is actually driving decisions in their market. One trades business talking to thirty visitors a month cannot detect which trust signals are converting in the current season, which emergency patterns are spiking before a cold snap hits, or which content sequences are moving homeowners from comparison to booked job.",
       "A network of trades businesses across rural North America talking to hundreds of thousands of visitors can. ClearSky pools anonymised behavioural signals across every trades client — conversion patterns, emergency demand spikes, seasonal behaviour, content performance, review velocity — so the intelligence every contractor receives is built at a scale no individual business could reach alone.",
@@ -367,6 +367,7 @@
   }
 
   let active = null;
+  let activeVideo = null;
   let lockedY = 0;
   function lockBg() {
     lockedY = window.scrollY;
@@ -383,7 +384,17 @@
     window.scrollTo(0, lockedY);
   }
   const open = (label) => { if (modals[label]) { active = label; lockBg(); } };
-  const close = () => { if (active) { active = null; unlockBg(); } };
+  const close = () => { if (active) { active = null; unlockBg(); activeVideo = null; } };
+
+  const openVideo = (href) => {
+    if (href && href !== '#') {
+      let embed = href;
+      if (href.includes('shorts/')) embed = href.replace('shorts/', 'embed/') + '?autoplay=1';
+      else if (href.includes('youtu.be/')) embed = href.replace('youtu.be/', 'www.youtube.com/embed/') + '?autoplay=1';
+      activeVideo = embed;
+    }
+  };
+  const closeVideo = () => { activeVideo = null; };
 </script>
 
 <svelte:window on:keydown={(e) => e.key === 'Escape' && close()} />
@@ -422,7 +433,8 @@
         <button class="tf-hbtn" type="button" on:click={close}><span class="x">&times;</span> close</button>
       </div>
       <div class="tf-scroll">
-        <a class="tf-hero" href={m.videoHref} target="_blank" rel="noopener">
+        <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions a11y-missing-attribute -->
+        <a class="tf-hero" style="cursor:{m.videoHref !== '#' ? 'pointer' : 'default'};" on:click|preventDefault={() => openVideo(m.videoHref)}>
           {#if m.titleBar}<div class="tf-bar">{m.titleBar}</div>{/if}
           <img src={m.hero} alt={`${active} video`} />
           {#if m.play}<span class="tf-play"></span>{/if}
@@ -435,6 +447,18 @@
           {#each m.paras as p}<p>{p}</p>{/each}
         </div>
       </div>
+    </div>
+  </div>
+{/if}
+
+{#if activeVideo}
+  <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
+  <div class="video-lightbox" on:click={closeVideo}>
+    <button class="video-lightbox-close" on:click|stopPropagation={closeVideo} aria-label="Close video">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="video-wrapper" on:click|stopPropagation>
+      <iframe src={activeVideo} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="Video"></iframe>
     </div>
   </div>
 {/if}
@@ -474,4 +498,10 @@
   .tf-cta.consult { background: #F5841F; }
   .tf-body p { font-family: 'Inter', sans-serif; font-size: 14.5px; line-height: 1.6; color: #333; margin: 0 0 14px; }
   .tf-body p:last-child { margin-bottom: 0; }
+  
+  .video-lightbox { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.95); z-index: 10001; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0; }
+  .video-wrapper { width: 100%; aspect-ratio: 16 / 9; background: #000; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4); }
+  .video-wrapper iframe { width: 100%; height: 100%; }
+  .video-lightbox-close { position: absolute; top: 16px; right: 16px; background: rgba(255, 255, 255, 0.15); border: none; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2; }
+  .video-lightbox-close svg { width: 24px; height: 24px; }
 </style>
