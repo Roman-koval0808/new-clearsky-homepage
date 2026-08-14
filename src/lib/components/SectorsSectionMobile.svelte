@@ -54,7 +54,7 @@
 </section>
 
 <style>
-  .sectors { width: 100%; background: #fff; padding: 36px 20px 48px; }
+  .sectors { width: 100%; background: #F7F9FC; padding: 36px 20px 48px; }
 
   .title {
     font-family: 'Inter', sans-serif; font-weight: 600; font-size: 23px; line-height: 1.25;

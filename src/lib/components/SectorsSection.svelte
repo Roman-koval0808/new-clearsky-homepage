@@ -72,7 +72,7 @@
 </section>
 
 <style>
-  .sectors { width: 100%; background: #ffffff; padding: 40px 0 60px; }
+  .sectors { width: 100%; background: #F7F9FC; padding: 40px 0 60px; }
   .inner { max-width: 1440px; margin: 0 auto; padding: 0 30px; box-sizing: border-box; }
 
   .title {
