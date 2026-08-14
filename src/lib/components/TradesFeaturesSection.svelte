@@ -116,7 +116,7 @@
       titleBar: null,
       play: false,
       heroW: 480,
-      videoHref: 'https://youtu.be/4iDlJO6XrLw',
+      videoHref: 'https://youtu.be/npW8m-Bldeg',
       paras: [
         'ViewRoom is a live virtual showroom embedded directly into your webpage — and it knows more about your visitor than any sales rep walking a show floor ever could.',
         'Before the rep enters, they’re briefed: which videos the visitor watched, which questions they asked the AI, how long they stayed.',

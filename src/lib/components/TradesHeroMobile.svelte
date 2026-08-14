@@ -8,7 +8,7 @@
   export let intro = 'ClearSky helps contractors get discovered locally, showcase their work, and convert more inquiries into booked projects. Built around the real contractor customer journey, the platform improves visibility, engagement, and follow-up.';
   export let lead = 'When you add AI and expertise to Discovery, Engagement, Conversion and Growth, your business revenue can DOUBLE — we guarantee 20% after 6 months, or up to 100% back.';
   export let video = '/images/trades-video.jpg';
-  export let videoId = 'AnxDnjOVsuQ'; // Placeholder video ID
+  export let videoId = 'd3_vkRGL7Kw'; 
   
   let playing = false;
 </script>

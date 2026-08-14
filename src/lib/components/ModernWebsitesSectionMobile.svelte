@@ -6,10 +6,9 @@
   export let intro = 'Your website should look as professional as the business behind it. ClearSky websites are modern, branded, mobile-friendly, and built to help turn visitors into leads.';
   export let seeLine = 'Swipe through three sample designs';
   export let sites = [
-    { label: 'Custom home sample site', href: '#', src: '/images/trade-images/trade-images-1.png' },
-    { label: 'Roofing sample site', href: '#', src: '/images/trade-images/trade-images-2.png' },
-    { label: 'Kitchen remodel sample site', href: '#', src: '/images/trade-images/trade-images-3.png' },
-    { label: 'Plumbing sample site', href: '#', src: '/images/trade-images/trade-images-4.jpg' }
+    { label: 'Kitchen Home Page', href: '#', src: '/images/trade-images/trade-images-1.png' },
+    { label: 'Home Builder Home Page', href: '#', src: '/images/trade-images/trade-images-2.png' },
+    { label: 'Roofing Home Page', href: '#', src: '/images/trade-images/trade-images-3.png' }
   ];
 
   let i = 0;

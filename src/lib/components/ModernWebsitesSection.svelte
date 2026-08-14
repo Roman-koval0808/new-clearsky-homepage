@@ -20,10 +20,9 @@
   export let seeLine = 'See three sample designs below';
 
   export let sites = [
-    { label: 'Custom home sample site', href: '#', src: '/images/trade-images/trade-images-1.png' },
-    { label: 'Roofing sample site', href: '#', src: '/images/trade-images/trade-images-2.png' },
-    { label: 'Kitchen remodel sample site', href: '#', src: '/images/trade-images/trade-images-3.png' },
-    { label: 'Plumbing sample site', href: '#', src: '/images/trade-images/trade-images-4.jpg' }
+    { label: 'Kitchen Home Page', href: '#', src: '/images/trade-images/trade-images-1.png' },
+    { label: 'Home Builder Home Page', href: '#', src: '/images/trade-images/trade-images-2.png' },
+    { label: 'Roofing Home Page', href: '#', src: '/images/trade-images/trade-images-3.png' }
   ];
 
   let i = 0;
@@ -55,12 +54,8 @@
       <p class="see">{seeLine}</p>
     </div>
     <div class="carousel-container">
-      <button class="nav-btn prev" on:click={prev} disabled={i === 0} aria-label="Previous">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 19l-7-7 7-7"/></svg>
-      </button>
-
       <div class="viewport">
-        <div class="site-row" style="transform: translateX(calc({-i} * (100% / 3) + {-i} * 5px));">
+        <div class="site-row">
           {#each sites as s}
             <a class="site-card mockup-card" href={s.href} on:click|preventDefault={() => openLightbox(s.src)} style="background-image: url('{s.src}');">
               <div class="browser-bar">
@@ -72,10 +67,6 @@
           {/each}
         </div>
       </div>
-
-      <button class="nav-btn next" on:click={next} disabled={i === maxIdx} aria-label="Next">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
-      </button>
     </div>
   </div>
 
@@ -97,11 +88,7 @@
   .websites-sub { max-width: 760px; margin: 0 auto; text-align: center; }
   .websites-sub p { font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.6; color: #1F2A44; margin: 0; }
   .websites-sub .see { margin-top: 10px; font-weight: 600; color: #3D6DB5; }
-  .carousel-container { display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: 40px; max-width: 100%; }
-  .nav-btn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid #d8e2f0; background: #fff; color: #4267AD; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all .2s ease; flex-shrink: 0; padding: 0; box-shadow: 0 4px 12px rgba(40,70,120,.05); }
-  .nav-btn:hover:not(:disabled) { background: #4267AD; color: #fff; border-color: #4267AD; transform: scale(1.05); }
-  .nav-btn:disabled { opacity: 0.3; cursor: default; }
-  .nav-btn svg { width: 24px; height: 24px; stroke-linecap: round; stroke-linejoin: round; }
+  .carousel-container { display: flex; align-items: center; justify-content: center; margin-top: 40px; max-width: 100%; }
 
   .viewport { width: 100%; max-width: 1380px; overflow: hidden; }
   .site-row { display: flex; gap: 15px; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); }

@@ -28,7 +28,7 @@
 
   export let circleSrc = '/images/trades-chat-circle.jpg';
   export let videoThumb = '/images/trades-video.jpg';
-  export let videoId = 'AnxDnjOVsuQ'; // Placeholder video ID
+  export let videoId = 'd3_vkRGL7Kw'; 
   
   let playing = false;
 </script>
