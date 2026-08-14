@@ -43,9 +43,9 @@
       heading: 'Help customers find your business',
       desc: 'Discovery tools increase your visibility across search, social media, and local listings so customers can easily find your business.',
       thumb1: '/images/video-discovery.jpg',
-      video1: '2AQJsCCKP3M',
+      video1: 'aBxRSZ0d4r8',
       thumb2: '/images/video-discovery.jpg',
-      video2: 'aBxRSZ0d4r8'
+      video2: '2AQJsCCKP3M'
     },
     {
       num: 2, name: 'Engagement',
@@ -135,7 +135,8 @@
               {#if playing1}
                 <iframe src="https://www.youtube.com/embed/{current.video1}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="Video 1" style="width:100%; height:100%;"></iframe>
               {:else}
-                <img src={current.thumb1} alt="Video 1" />
+                <img src={`https://img.youtube.com/vi/${current.video1}/maxresdefault.jpg`} onerror="this.onerror=null; this.src='https://img.youtube.com/vi/{current.video1}/hqdefault.jpg';" alt="Video 1" />
+                <div class="yt-btn"><span class="yt-tri"></span></div>
               {/if}
             </div>
           {:else if current.thumb1}
@@ -152,7 +153,8 @@
               {#if playing2}
                 <iframe src="https://www.youtube.com/embed/{current.video2}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="Video 2" style="width:100%; height:100%;"></iframe>
               {:else}
-                <img src={current.thumb2} alt="Video 2" />
+                <img src={`https://img.youtube.com/vi/${current.video2}/maxresdefault.jpg`} onerror="this.onerror=null; this.src='https://img.youtube.com/vi/{current.video2}/hqdefault.jpg';" alt="Video 2" />
+                <div class="yt-btn"><span class="yt-tri"></span></div>
               {/if}
             </div>
           {:else if current.thumb2}
@@ -218,4 +220,8 @@
   .video-player { flex: 1; position: relative; border-radius: 6px; overflow: hidden; background: #000; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; aspect-ratio: 16/9; cursor: pointer; }
   .video-player.empty { background: #cfd5dc; box-shadow: inset 0 2px 6px rgba(0,0,0,0.05); cursor: default; }
   .video-player img { width: 100%; height: 100%; display: block; object-fit: cover; }
+
+  .yt-btn { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 60px; height: 42px; background: #FF0000; border-radius: 10px; display: flex; align-items: center; justify-content: center; z-index: 2; transition: background 0.2s; }
+  .video-player:hover .yt-btn { background: #e60000; }
+  .yt-tri { width: 0; height: 0; border-left: 18px solid #fff; border-top: 11px solid transparent; border-bottom: 11px solid transparent; margin-left: 3px; }
 </style>

@@ -35,10 +35,10 @@
       label: 'Step 1 Discovery:', heading: 'Help customers find your business',
       desc: 'Discovery tools increase your visibility across search, social media, and local listings so customers can easily find your business.',
       bullets: ['Local SEO optimization', 'Marketing support', 'Social media management', 'Review Platform', 'Google Business Optimization'],
-      videoTitle1: 'Discovery — First Step in the Customer Journey',
-      thumb1: '/images/video-discovery.jpg', video1: '2AQJsCCKP3M',
-      videoTitle2: 'Discovery Tools in Action',
-      thumb2: '/images/video-discovery.jpg', video2: 'aBxRSZ0d4r8'
+      videoTitle1: 'Discovery Tools in Action',
+      thumb1: '/images/video-discovery.jpg', video1: 'aBxRSZ0d4r8',
+      videoTitle2: 'Discovery — First Step in the Customer Journey',
+      thumb2: '/images/video-discovery.jpg', video2: '2AQJsCCKP3M'
     },
     {
       num: 2, name: 'Engagement',
@@ -114,7 +114,7 @@
           {#if playing1}
             <iframe src="https://www.youtube.com/embed/{current.video1}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="Video 1" style="width:100%; height:100%;"></iframe>
           {:else}
-            <div class="video-bg" style={current.thumb1 ? `background-image:url('${current.thumb1}')` : ''}></div>
+            <div class="video-bg" style={`background-image:url('https://img.youtube.com/vi/${current.video1}/maxresdefault.jpg'), url('https://img.youtube.com/vi/${current.video1}/hqdefault.jpg')`}></div>
             <div class="video-head">
               <div class="cs-logo">CS</div>
               <div>
@@ -123,7 +123,6 @@
               </div>
             </div>
             <div class="yt-btn"><span class="yt-tri"></span></div>
-            <div class="yt-watch">Watch on <span class="yt-tag">YouTube</span></div>
           {/if}
         </div>
       {:else if current.thumb1}
@@ -140,7 +139,7 @@
           {#if playing2}
             <iframe src="https://www.youtube.com/embed/{current.video2}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="Video 2" style="width:100%; height:100%;"></iframe>
           {:else}
-            <div class="video-bg" style={current.thumb2 ? `background-image:url('${current.thumb2}')` : ''}></div>
+            <div class="video-bg" style={`background-image:url('https://img.youtube.com/vi/${current.video2}/maxresdefault.jpg'), url('https://img.youtube.com/vi/${current.video2}/hqdefault.jpg')`}></div>
             <div class="video-head">
               <div class="cs-logo">CS</div>
               <div>
@@ -149,7 +148,6 @@
               </div>
             </div>
             <div class="yt-btn"><span class="yt-tri"></span></div>
-            <div class="yt-watch">Watch on <span class="yt-tag">YouTube</span></div>
           {/if}
         </div>
       {:else if current.thumb2}
@@ -204,6 +202,4 @@
   .yt-btn { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 60px; height: 42px; background: #FF0000; border-radius: 10px; display: flex; align-items: center; justify-content: center; z-index: 2; transition: background 0.2s; }
   .video:hover .yt-btn { background: #e60000; }
   .yt-tri { width: 0; height: 0; border-left: 18px solid #fff; border-top: 11px solid transparent; border-bottom: 11px solid transparent; margin-left: 3px; }
-  .yt-watch { position: absolute; bottom: 11px; right: 14px; z-index: 2; color: #fff; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 5px; }
-  .yt-tag { background: #FF0000; color: #fff; font-weight: 800; padding: 1px 5px; border-radius: 4px; font-size: 10.5px; }
 </style>
