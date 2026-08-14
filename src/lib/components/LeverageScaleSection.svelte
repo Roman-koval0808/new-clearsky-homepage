@@ -9,7 +9,8 @@
       tag: "The vehicle: a shared portal",
       body: "Independent makers produce work worth real money — but on their own, the right buyers can’t find them, and knockoffs erode the market. A shared portal brings the whole community’s work into one place buyers actually reach, with discovery and semantic search that surface the right piece — and provenance that makes authenticity something witnessed, not just claimed. Buyers can even join a commissioned piece as it’s made.",
       vlabel: "Makers · authenticity",
-      vhref: "#",
+      vhref: "https://youtu.be/cjMEEAwmY-Q",
+      videoId: "cjMEEAwmY-Q"
     },
     {
       h: "Manufacturers & Producers",
@@ -27,6 +28,8 @@
     },
   ];
   export let extendsLine = "… and the same logic extends to any sector where scale changes the math.";
+  
+  let playing = [false, false, false];
 </script>
 
 <section class="as-sec as-tint">
@@ -41,12 +44,23 @@
           <p>{t.body}</p>
         </div>
         <div class="as-track-media">
-          <a class="as-video" href={t.vhref} target="_blank" rel="noopener">
-            <div class="vbar">{t.vlabel}</div>
-            <span class="poster"></span>
-            <span class="play"></span>
-            <span class="ph-note">video coming</span>
-          </a>
+          {#if t.videoId && playing[i]}
+            <div class="as-video-playing">
+              <iframe src="https://www.youtube.com/embed/{t.videoId}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title={t.h}></iframe>
+            </div>
+          {:else}
+            <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
+            <a class="as-video" href={t.vhref} target={t.videoId ? null : "_blank"} rel="noopener" on:click={(e) => { if (t.videoId) { e.preventDefault(); playing[i] = true; } }}>
+              <div class="vbar">{t.vlabel}</div>
+              {#if t.videoId}
+                <img class="poster-img" src={`https://img.youtube.com/vi/${t.videoId}/maxresdefault.jpg`} onerror="this.onerror=null; this.src='https://img.youtube.com/vi/{t.videoId}/hqdefault.jpg';" alt={t.h} />
+              {:else}
+                <span class="poster"></span>
+                <span class="ph-note">video coming</span>
+              {/if}
+              <span class="play"></span>
+            </a>
+          {/if}
         </div>
       </div>
     {/each}
@@ -72,7 +86,10 @@
   .as-extends { max-width:820px; margin:34px auto 0; text-align:center; font-family:'Inter',sans-serif; font-size:16px; font-style:italic; line-height:1.6; color:#5b6b86; }
 
   .as-video { display:block; width:100%; border-radius:10px; overflow:hidden; position:relative; box-shadow:0 12px 30px rgba(20,30,50,.16); text-decoration:none; }
+  .as-video-playing { width:100%; aspect-ratio:16/9; border-radius:10px; overflow:hidden; box-shadow:0 12px 30px rgba(20,30,50,.16); background:#000; }
+  .as-video-playing iframe { width:100%; height:100%; display:block; }
   .as-video .poster { width:100%; aspect-ratio:16/9; background:linear-gradient(135deg,#26456e,#14233a); display:block; }
+  .as-video .poster-img { width:100%; aspect-ratio:16/9; display:block; object-fit:cover; }
   .as-video .vbar { position:absolute; top:0; left:0; right:0; background:rgba(20,30,50,.80); color:#fff; font-family:'Inter',sans-serif; font-size:14px; font-weight:700; text-align:center; padding:8px 10px; z-index:2; }
   .as-video .ph-note { position:absolute; bottom:10px; left:0; right:0; text-align:center; color:rgba(255,255,255,.7); font-family:'Inter',sans-serif; font-size:12px; }
   .as-video .play { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:62px; height:62px; border-radius:50%; background:rgba(255,255,255,.92); display:flex; align-items:center; justify-content:center; box-shadow:0 4px 14px rgba(0,0,0,.3); }

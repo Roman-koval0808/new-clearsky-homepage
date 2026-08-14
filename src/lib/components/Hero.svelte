@@ -39,12 +39,12 @@
       photo: '/images/trade-images/trade-images-4.jpg',
       messages: [
         { kind: 'user', avatar: 'RD', name: 'Rodger Davidson', chip: 'Missed Call', chipType: 'voice',
-          text: '[Voicemail] \u201cMe and my son want to do fall fishing. Any October openings?\u201d' },
+          text: '[Voicemail] I would like to make an appointment on Tuesday Sept 22nd at 11:00 am' },
         { kind: 'ai', avatar: 'AI',
-          text: 'Yes \u2014 we do. Holding two October dates. Sending fall fishing packages now.' },
+          text: 'Your appointment has been confirmed, we will send you a reminder the day before.' },
         { kind: 'divider', label: 'New inquiry' },
         { kind: 'user', avatar: 'CN', name: 'Carla Nieminen', chip: 'Facebook', chipType: 'facebook',
-          text: '\u201cAnyone know a good fly-in camp up north? Planning next season \u2014 any recommendations?\u201d' }
+          text: 'I like the before and after photos, you guys did a great job.  Can I get a quote from you?' }
       ]
     }
     // Add more sectors (Trades, Construction, Manufacturers, …) each with

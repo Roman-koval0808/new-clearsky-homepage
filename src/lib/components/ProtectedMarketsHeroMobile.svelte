@@ -17,7 +17,7 @@
     { pre: 'Failure will never be the result of ', emphasis: 'a competitor we let in.' },
     { pre: 'Failure will never be the result of ', emphasis: 'ClearSky putting our interests above our clients.' }
   ];
-  export let photo = '/images/main-street.jpg';
+  export let photo = '/images/guarantee.jpg';
   export let photoAlt = 'A protected local main street';
 </script>
 

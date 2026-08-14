@@ -22,7 +22,7 @@
     { pre: 'Failure will never be the result of ', emphasis: 'a competitor we let in.' },
     { pre: 'Failure will never be the result of ', emphasis: 'ClearSky putting our interests above our clients.' }
   ];
-  export let mainStreetSrc = '/images/main-street.jpg';
+  export let mainStreetSrc = '/images/guarantee.jpg';
   export let mainStreetAlt = 'Main Street — local trades vans on a small-town street';
 </script>
 
@@ -43,8 +43,8 @@
 </section>
 
 <style>
-  .hero { width: 100%; background: #fff; }
-  .inner { max-width: 1440px; margin: 0 auto; padding: 0 30px 56px; display: flex; gap: 44px; align-items: flex-start; box-sizing: border-box; }
+  .hero { width: 100%; background: #fff; overflow: hidden; }
+  .inner { max-width: 1440px; margin: 0 auto; padding: 0 0 56px 30px; display: flex; justify-content: space-between; gap: 40px; align-items: flex-start; box-sizing: border-box; }
   .left { flex: 1; max-width: 600px; padding-top: 30px; }
   .right { flex-shrink: 0; width: 600px; padding-top: 4px; }
   .right img { width: 100%; height: auto; display: block; }
