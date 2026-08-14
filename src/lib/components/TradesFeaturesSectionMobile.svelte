@@ -149,7 +149,7 @@
     "hero": "/images/features/hero-ai-optimization.png",
     "titleBar": null,
     "play": false,
-    "videoHref": "#",
+    "videoHref": "https://youtu.be/2AQJsCCKP3M",
     "paras": [
       "Traditional search is dying. Users aren’t clicking links anymore; they are asking AI directly. If your business isn’t surfacing in these conversational answers, you are invisible to a rapidly growing market.",
       "Our AI Optimization platform reveals your true AI “share of voice.” We audit major LLMs to see if they recommend your business, ignore it, or misrepresent it.",
