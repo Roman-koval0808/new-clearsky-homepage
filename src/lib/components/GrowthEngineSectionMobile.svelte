@@ -150,12 +150,6 @@
             <div class="yt-btn"><span class="yt-tri"></span></div>
           {/if}
         </div>
-      {:else if current.thumb2}
-        <div class="video">
-          <div class="video-bg" style={`background-image:url('${current.thumb2}')`}></div>
-        </div>
-      {:else}
-        <div class="video empty"></div>
       {/if}
     </div>
   </div>

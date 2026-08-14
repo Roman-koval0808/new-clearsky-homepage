@@ -157,12 +157,6 @@
                 <div class="yt-btn"><span class="yt-tri"></span></div>
               {/if}
             </div>
-          {:else if current.thumb2}
-            <div class="video-player">
-              <img src={current.thumb2} alt="Video 2" />
-            </div>
-          {:else}
-            <div class="video-player empty"></div>
           {/if}
         </div>
       </div>
