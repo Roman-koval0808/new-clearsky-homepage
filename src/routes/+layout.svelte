@@ -6,7 +6,7 @@
 
   onMount(() => {
     const leadboxScript = document.createElement('script');
-    leadboxScript.src = "https://a2p.viewroom.ca/embed/leadbox/cmkwq0cf20001f4gpo4ir2n3a?t=1786976631020";
+    leadboxScript.src = "http://localhost:3005/embed/leadbox/cmkwq0cf20001f4gpo4ir2n3a?t=1786992490061";
     leadboxScript.async = true;
     if (leadboxContainer) {
       leadboxContainer.appendChild(leadboxScript);
