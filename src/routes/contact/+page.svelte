@@ -12,13 +12,6 @@
   let leadboxContainer;
 
   onMount(() => {
-    const leadboxScript = document.createElement('script');
-    leadboxScript.src = "https://a2p.viewroom.ca/embed/leadbox/cmkwq0cf20001f4gpo4ir2n3a?t=1786976631020";
-    leadboxScript.async = true;
-    if (leadboxContainer) {
-      leadboxContainer.appendChild(leadboxScript);
-    }
-
     const leadformScript = document.createElement('script');
     leadformScript.src = "https://a2p.viewroom.ca/embed/leadform/cmqrr1w61000912m8vq2b9z2u?t=1786978361272";
     leadformScript.async = true;
