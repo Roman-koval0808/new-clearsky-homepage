@@ -7,6 +7,18 @@
   import NavigationMobile from '$lib/components/NavigationMobile.svelte';
   import FoundersSection from '$lib/components/FoundersSection.svelte';
   import FoundersSectionMobile from '$lib/components/FoundersSectionMobile.svelte';
+  import { onMount } from 'svelte';
+
+  let leadboxContainer;
+
+  onMount(() => {
+    const script = document.createElement('script');
+    script.src = "https://a2p.viewroom.ca/embed/leadbox/cmkwq0cf20001f4gpo4ir2n3a?t=1786976631020";
+    script.async = true;
+    if (leadboxContainer) {
+      leadboxContainer.appendChild(script);
+    }
+  });
 </script>
 
 <svelte:head><title>ClearSky — Contact Us</title></svelte:head>
@@ -22,13 +34,7 @@
     <h1>Let's talk about your growth</h1>
     <p class="lead">Tell us about your business and we'll show you where the missed
       demand is. <!-- TODO(design): replace stub with real contact page + wire form --></p>
-    <form class="form" on:submit|preventDefault>
-      <label>Name<input type="text" name="name" autocomplete="name" required /></label>
-      <label>Email<input type="email" name="email" autocomplete="email" required /></label>
-      <label>Business<input type="text" name="business" /></label>
-      <label>Message<textarea name="message" rows="5"></textarea></label>
-      <button type="submit">Send</button>
-    </form>
+    <div class="leadbox-container" bind:this={leadboxContainer}></div>
   </div>
 </section>
 
