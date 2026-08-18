@@ -174,6 +174,7 @@
     "titleBar": null,
     "play": false,
     "videoHref": "https://youtu.be/npW8m-Bldeg",
+    "embedUrl": "https://viewroom.ca/room/81b8b5c5-4439-4411-91c0-4d1d76c2435f/embed",
     "paras": [
       "ViewRoom is a live virtual showroom embedded directly into your webpage — and it knows more about your visitor than any sales rep walking a show floor ever could.",
       "Before the rep enters, they’re briefed: which videos the visitor watched, which questions they asked the AI, how long they stayed.",
@@ -445,6 +446,11 @@
         </div>
         <div class="tf-body">
           {#each m.paras as p}<p>{p}</p>{/each}
+          {#if m.embedUrl}
+            <div class="tf-embed">
+              <iframe src={m.embedUrl} title={`${active} Live Room`} frameborder="0" allow="camera; microphone; display-capture; autoplay; clipboard-write; encrypted-media; fullscreen" allowfullscreen></iframe>
+            </div>
+          {/if}
         </div>
       </div>
     </div>
@@ -498,6 +504,8 @@
   .tf-cta.consult { background: #F5841F; }
   .tf-body p { font-family: 'Inter', sans-serif; font-size: 14.5px; line-height: 1.6; color: #333; margin: 0 0 14px; }
   .tf-body p:last-child { margin-bottom: 0; }
+  .tf-embed { margin-top: 20px; width: 100%; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 14px rgba(40,70,120,.08); border: 1px solid #E6ECF5; background: #000; }
+  .tf-embed iframe { width: 100%; height: 420px; display: block; border: 0; }
   
   .video-lightbox { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.95); z-index: 10001; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0; }
   .video-wrapper { width: 100%; aspect-ratio: 16 / 9; background: #000; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4); }
