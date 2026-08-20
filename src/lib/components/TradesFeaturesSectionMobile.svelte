@@ -401,9 +401,17 @@
   const withFp = (url) => {
     if (!url || typeof window === 'undefined') return url;
     try {
+      const baseUrl = window.location.hostname === 'localhost' ? 'http://localhost:3005' : 'https://a2p.viewroom.ca';
+      let fullUrl = url;
+      if (fullUrl.includes('localhost:3005') || fullUrl.includes('a2p.viewroom.ca')) {
+        fullUrl = fullUrl.replace(/https?:\/\/(localhost:\d+|a2p\.viewroom\.ca)/, baseUrl);
+      } else if (fullUrl.startsWith('/')) {
+        fullUrl = baseUrl + fullUrl;
+      }
+
       const fp = window.localStorage.getItem('fingerprintId') || window.localStorage.getItem('fingerprint') || window.localStorage.getItem('fp');
-      if (!fp) return url;
-      const u = new URL(url);
+      if (!fp) return fullUrl;
+      const u = new URL(fullUrl);
       u.searchParams.set('fp', fp);
       return u.toString();
     } catch {
