@@ -36,38 +36,47 @@ function readFingerprint() {
 	return readUrlFingerprint() || readStoredFingerprint();
 }
 
-/** Last-resort fingerprint when FingerprintJS is unreachable. */
+/**
+ * CDN-free local fingerprint. Deterministic per browser/device, no network, no canvas
+ * (Firefox ETP randomizes canvas reads). Mirrored 1:1 from
+ * apps/lead-grabber-v1/src/lib/telemetry/fingerprint.ts — keep both in sync.
+ * Returns 12 hex chars to match the FingerprintJS id shape the pipeline expects.
+ */
 function generateFallbackFingerprint() {
-	try {
-		const canvas = document.createElement('canvas');
-		const ctx = canvas.getContext('2d');
-		let seed = [
-			navigator.userAgent,
-			navigator.language,
-			screen.width,
-			screen.height,
-			new Date().getTimezoneOffset(),
-			!!navigator.hardwareConcurrency
-		].join('|');
-		if (ctx) {
-			ctx.fillText('clearsky-fp', 4, 12);
-			seed += '|' + canvas.toDataURL().slice(0, 200);
-		}
-		let h = 0;
-		for (let i = 0; i < seed.length; i++) {
-			h = (h << 5) - h + seed.charCodeAt(i);
-			h |= 0;
-		}
-		return Math.abs(h).toString(16).padStart(12, '0');
-	} catch {
-		return Math.random().toString(16).slice(2, 14);
+	const nav = navigator;
+	const parts = [
+		nav.userAgent || '',
+		nav.language || '',
+		Array.isArray(nav.languages) ? nav.languages.join(',') : '',
+		nav.platform || '',
+		String(nav.hardwareConcurrency ?? ''),
+		String(nav.deviceMemory ?? ''),
+		String(window.screen?.width ?? ''),
+		String(window.screen?.height ?? ''),
+		String(window.screen?.colorDepth ?? ''),
+		Intl.DateTimeFormat().resolvedOptions().timeZone || '',
+		String(new Date().getTimezoneOffset())
+	];
+	const seed = parts.join('|');
+	// Two-lane 32-bit FNV-1a so the 12-hex id mixes both lanes.
+	let h1 = 0x811c9dc5;
+	let h2 = 0x01000193;
+	for (let i = 0; i < seed.length; i++) {
+		const c = seed.charCodeAt(i);
+		h1 ^= c;
+		h1 = Math.imul(h1, 0x01000193);
+		h2 ^= c;
+		h2 = Math.imul(h2, 0x85ebca6b);
 	}
+	const hex = (h1 >>> 0).toString(16).padStart(8, '0') + (h2 >>> 0).toString(16).padStart(8, '0');
+	return hex.slice(0, 12);
 }
 
 /**
  * Resolve the visitor fingerprint. Matches the a2p viewroom exactly: `?fp=` first, then the stored
- * FingerprintJS id, then FingerprintJS itself (`visitorId.slice(0, 12)`), so the marketing site and
- * the viewroom recognise the same person across origins.
+ * FingerprintJS id, then FingerprintJS itself (`visitorId.slice(0, 12)`), then the CDN-free local
+ * fallback (persisted, so the marketing site and the viewroom converge on the same id on Firefox,
+ * where ETP blocks the openfpcdn.io CDN).
  */
 async function loadFingerprint() {
 	const existing = readFingerprint();
@@ -86,7 +95,13 @@ async function loadFingerprint() {
 		}
 		return fp;
 	} catch {
-		return generateFallbackFingerprint();
+		const fp = generateFallbackFingerprint();
+		try {
+			window.localStorage.setItem('fingerprintId', fp);
+		} catch {
+			/* ignore */
+		}
+		return fp;
 	}
 }
 
