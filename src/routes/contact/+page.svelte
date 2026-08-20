@@ -13,7 +13,8 @@
 
   onMount(() => {
     const leadformScript = document.createElement('script');
-    leadformScript.src = "https://a2p.viewroom.ca/embed/leadform/cmqrr1w61000912m8vq2b9z2u?t=1786978361272";
+    const baseUrl = window.location.hostname === 'localhost' ? 'http://localhost:3005' : 'https://a2p.viewroom.ca';
+    leadformScript.src = `${baseUrl}/embed/leadform/cmqrr1w61000912m8vq2b9z2u?t=${Date.now()}`;
     leadformScript.async = true;
     if (leadboxContainer) {
       leadboxContainer.appendChild(leadformScript);
