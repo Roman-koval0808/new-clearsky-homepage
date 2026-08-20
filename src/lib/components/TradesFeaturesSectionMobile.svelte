@@ -174,7 +174,7 @@
     "titleBar": null,
     "play": false,
     "videoHref": "https://youtu.be/npW8m-Bldeg",
-    "embedUrl": "https://a2p.viewroom.ca/room/cmt0236wc0003xqoigar5z2ep/embed",
+    "embedUrl": "http://localhost:3005/room/cmt0236wc0003xqoigar5z2ep/embed",
     "paras": [
       "ViewRoom is a live virtual showroom embedded directly into your webpage — and it knows more about your visitor than any sales rep walking a show floor ever could.",
       "Before the rep enters, they’re briefed: which videos the visitor watched, which questions they asked the AI, how long they stayed.",
@@ -396,6 +396,20 @@
     }
   };
   const closeVideo = () => { activeVideo = null; };
+
+  // Append the visitor fingerprint to the viewroom embed URL so a2p recognises the same user.
+  const withFp = (url) => {
+    if (!url || typeof window === 'undefined') return url;
+    try {
+      const fp = window.localStorage.getItem('fingerprintId') || window.localStorage.getItem('fingerprint') || window.localStorage.getItem('fp');
+      if (!fp) return url;
+      const u = new URL(url);
+      u.searchParams.set('fp', fp);
+      return u.toString();
+    } catch {
+      return url;
+    }
+  };
 </script>
 
 <svelte:window on:keydown={(e) => e.key === 'Escape' && close()} />
@@ -448,7 +462,7 @@
           {#each m.paras as p}<p>{p}</p>{/each}
           {#if m.embedUrl}
             <div class="tf-embed">
-              <iframe src={m.embedUrl} title={`${active} Live Room`} frameborder="0" allow="camera; microphone; display-capture; autoplay; clipboard-write; encrypted-media; fullscreen" allowfullscreen></iframe>
+              <iframe src={withFp(m.embedUrl)} title={`${active} Live Room`} frameborder="0" allow="camera; microphone; display-capture; autoplay; clipboard-write; encrypted-media; fullscreen" allowfullscreen></iframe>
             </div>
           {/if}
         </div>

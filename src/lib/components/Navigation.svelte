@@ -38,13 +38,13 @@
 
     <nav class="links">
       {#each links as l}
-        <a href={l.href} class:current={active === l.href}>{l.label}</a>
+        <a href={l.href} class:current={active === l.href} data-clearsky-signal="svc_click" data-clearsky-payload={JSON.stringify({ service: l.label })}>{l.label}</a>
       {/each}
     </nav>
 
     <div class="right">
-      <a href="/contact" class="contact">Contact Us</a>
-      <a href="/guarantee" class="guarantee">Guarantee</a>
+      <a href="/contact" class="contact" data-clearsky-signal="cta_call">Contact Us</a>
+      <a href="/guarantee" class="guarantee" data-clearsky-signal="hero_services_click">Guarantee</a>
     </div>
   </div>
 </header>

@@ -124,6 +124,8 @@
     <a
       href="/trades"
       class="visual"
+      data-clearsky-signal="hero_cta_click"
+      data-clearsky-payload={JSON.stringify({ sector: 'trades' })}
       style="width:{visualWidth}px; height:{visualHeight}px;
              background-image:url('{sectors[activeSector].photo}');
              display: block; cursor: pointer;"
