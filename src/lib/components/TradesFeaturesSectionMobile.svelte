@@ -472,11 +472,6 @@
         </div>
         <div class="tf-body">
           {#each m.paras as p}<p>{p}</p>{/each}
-          {#if m.embedUrl}
-            <div class="tf-embed">
-              <iframe src={withFp(m.embedUrl)} title={`${active} Live Room`} frameborder="0" allow="camera; microphone; display-capture; autoplay; clipboard-write; encrypted-media; fullscreen" allowfullscreen></iframe>
-            </div>
-          {/if}
         </div>
       </div>
     </div>
