@@ -5,8 +5,24 @@ import { captureBrowserAttribution } from './attribution';
 
 const DEFAULT_ENDPOINT = '/api/v1/telemetry/signals';
 
+/**
+ * One session id per BROWSER TAB, shared with the leadbox/leadform embeds via the same
+ * sessionStorage key. sessionStorage is per-tab and is cleared when the tab closes, which is the
+ * visit boundary: close the tab and reopen and this is a new session, so the backend opens a new
+ * comm log. A per-load random id could not express that, and would also disagree with the two
+ * embed scripts that load separately on the same page.
+ */
 function randomSessionId() {
-	return `sess_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 8)}`;
+	const fresh = `sess_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 8)}`;
+	if (typeof window === 'undefined') return fresh;
+	try {
+		const existing = window.sessionStorage.getItem('clearsky_session');
+		if (existing) return existing;
+		window.sessionStorage.setItem('clearsky_session', fresh);
+		return fresh;
+	} catch {
+		return fresh; // private mode / storage blocked
+	}
 }
 
 function readUrlFingerprint() {
