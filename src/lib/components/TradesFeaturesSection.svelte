@@ -323,6 +323,10 @@
   };
   const closeVideo = () => { activeVideo = null; };
 
+  let activeEmbed = null;
+  const openEmbed = (url) => { if (url) activeEmbed = url; };
+  const closeEmbed = () => { activeEmbed = null; };
+
   // Append the visitor fingerprint to the viewroom embed URL so a2p recognises the same
   // user across origins (FingerprintJS alone can differ between localhost ports/domains).
   const withFp = (url) => {
@@ -386,7 +390,7 @@
           {#if m.play}<span class="hero-play"></span>{/if}
         </a>
         <div class="cta-col">
-          <a class="cta cta-ai" href="#">Ask our AI</a>
+          <a class="cta cta-ai" href="#" on:click|preventDefault={() => openEmbed(modals['ViewRoom'].embedUrl)}>Go to ViewRoom</a>
           <a class="cta cta-consult" href="#">15 Minute Consult</a>
         </div>
       </div>
@@ -413,6 +417,21 @@
     </div>
   </div>
 {/if}
+
+{#if activeEmbed}
+  <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
+  <div class="embed-lightbox" on:click={closeEmbed}>
+    <div class="embed-lightbox-inner" on:click|stopPropagation>
+      <div class="embed-lightbox-head">
+        <button class="embed-lightbox-close" on:click={closeEmbed}>
+          <span class="x">&times;</span> close
+        </button>
+      </div>
+      <iframe src={withFp(activeEmbed)} title="Live Room" frameborder="0" allow="camera; microphone; display-capture; autoplay; clipboard-write; encrypted-media; fullscreen" allowfullscreen></iframe>
+    </div>
+  </div>
+{/if}
+
 
 <style>
   .features { width: 100%; background: #fff; padding: 40px 0 60px; }
@@ -462,4 +481,12 @@
   .video-lightbox-close { position: absolute; top: 20px; right: 30px; background: rgba(255, 255, 255, 0.1); border: none; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s; }
   .video-lightbox-close:hover { background: rgba(255, 255, 255, 0.2); }
   .video-lightbox-close svg { width: 28px; height: 28px; }
+
+  .embed-lightbox { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(20,30,50,.85); z-index: 10002; display: flex; align-items: center; justify-content: center; padding: 40px 20px; backdrop-filter: blur(4px); overflow-y: auto; }
+  .embed-lightbox-inner { width: 100%; max-width: 1000px; background: #fff; border-radius: 12px; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4); display: flex; flex-direction: column; overflow: hidden; }
+  .embed-lightbox-head { display: flex; justify-content: flex-end; padding: 12px 16px; background: #fff; border-bottom: 1px solid #E6ECF5; }
+  .embed-lightbox-close { background: none; border: 0; font-family: 'Inter', sans-serif; font-size: 15px; cursor: pointer; color: #5b6b86; padding: 4px; display: inline-flex; align-items: center; gap: 6px; }
+  .embed-lightbox-close:hover { color: #1F2A44; }
+  .embed-lightbox-close .x { font-size: 18px; line-height: 1; }
+  .embed-lightbox-inner iframe { width: 100%; height: 700px; display: block; border: 0; }
 </style>

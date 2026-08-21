@@ -397,6 +397,10 @@
   };
   const closeVideo = () => { activeVideo = null; };
 
+  let activeEmbed = null;
+  const openEmbed = (url) => { if (url) activeEmbed = url; };
+  const closeEmbed = () => { activeEmbed = null; };
+
   // Append the visitor fingerprint to the viewroom embed URL so a2p recognises the same user.
   const withFp = (url) => {
     if (!url || typeof window === 'undefined') return url;
@@ -463,7 +467,7 @@
           {#if m.play}<span class="tf-play"></span>{/if}
         </a>
         <div class="tf-ctas">
-          <a class="tf-cta ai" href="#">Ask our AI</a>
+          <a class="tf-cta ai" href="#" on:click|preventDefault={() => openEmbed(modals['ViewRoom'].embedUrl)}>Go to ViewRoom</a>
           <a class="tf-cta consult" href="#">15 Minute Consult</a>
         </div>
         <div class="tf-body">
@@ -490,6 +494,21 @@
     </div>
   </div>
 {/if}
+
+{#if activeEmbed}
+  <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
+  <div class="embed-lightbox" on:click={closeEmbed}>
+    <div class="embed-lightbox-inner" on:click|stopPropagation>
+      <div class="embed-lightbox-head">
+        <button class="embed-lightbox-close" on:click={closeEmbed}>
+          <span class="x">&times;</span> close
+        </button>
+      </div>
+      <iframe src={withFp(activeEmbed)} title="Live Room" frameborder="0" allow="camera; microphone; display-capture; autoplay; clipboard-write; encrypted-media; fullscreen" allowfullscreen></iframe>
+    </div>
+  </div>
+{/if}
+
 
 <style>
   .tf { width: 100%; background: #fff; padding: 36px 20px 48px; }
@@ -534,4 +553,12 @@
   .video-wrapper iframe { width: 100%; height: 100%; }
   .video-lightbox-close { position: absolute; top: 16px; right: 16px; background: rgba(255, 255, 255, 0.15); border: none; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2; }
   .video-lightbox-close svg { width: 24px; height: 24px; }
+
+  .embed-lightbox { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(20,30,50,.85); z-index: 10002; display: flex; align-items: center; justify-content: center; padding: 20px 10px; backdrop-filter: blur(4px); }
+  .embed-lightbox-inner { width: 100%; height: 100%; max-height: 800px; background: #fff; border-radius: 12px; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4); display: flex; flex-direction: column; overflow: hidden; }
+  .embed-lightbox-head { display: flex; justify-content: flex-end; padding: 10px 14px; background: #fff; border-bottom: 1px solid #E6ECF5; }
+  .embed-lightbox-close { background: none; border: 0; font-family: 'Inter', sans-serif; font-size: 15px; cursor: pointer; color: #5b6b86; padding: 4px; display: inline-flex; align-items: center; gap: 6px; }
+  .embed-lightbox-close:active { color: #1F2A44; }
+  .embed-lightbox-close .x { font-size: 18px; line-height: 1; }
+  .embed-lightbox-inner iframe { width: 100%; flex: 1; display: block; border: 0; }
 </style>
